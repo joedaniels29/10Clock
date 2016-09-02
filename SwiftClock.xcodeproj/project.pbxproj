@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8C44D431D79030C00065E34 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C44D421D79030C00065E34 /* Clock.swift */; };
+		D8C44D451D79037A00065E34 /* CoreGraphicsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C44D441D79037A00065E34 /* CoreGraphicsExtensions.swift */; };
 		D8F6E8211D7745B800E29842 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6E8201D7745B800E29842 /* AppDelegate.swift */; };
 		D8F6E8231D7745B800E29842 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6E8221D7745B800E29842 /* ViewController.swift */; };
 		D8F6E8261D7745B800E29842 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F6E8241D7745B800E29842 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D8C44D421D79030C00065E34 /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
+		D8C44D441D79037A00065E34 /* CoreGraphicsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsExtensions.swift; sourceTree = "<group>"; };
 		D8F6E81D1D7745B800E29842 /* SwiftClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F6E8201D7745B800E29842 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8F6E8221D7745B800E29842 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				D8F6E8201D7745B800E29842 /* AppDelegate.swift */,
+				D8C44D421D79030C00065E34 /* Clock.swift */,
+				D8C44D441D79037A00065E34 /* CoreGraphicsExtensions.swift */,
 				D8F6E8221D7745B800E29842 /* ViewController.swift */,
 				D8F6E8241D7745B800E29842 /* Main.storyboard */,
 				D8F6E8271D7745B800E29842 /* Assets.xcassets */,
@@ -135,6 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8C44D431D79030C00065E34 /* Clock.swift in Sources */,
+				D8C44D451D79037A00065E34 /* CoreGraphicsExtensions.swift in Sources */,
 				D8F6E8231D7745B800E29842 /* ViewController.swift in Sources */,
 				D8F6E8211D7745B800E29842 /* AppDelegate.swift in Sources */,
 			);
@@ -288,6 +296,7 @@
 				D8F6E8311D7745B800E29842 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
