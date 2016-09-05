@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		123A04C87259B11D9D296278 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A0DC727A17809F091E112 /* DateExtensions.swift */; };
 		D8C44D431D79030C00065E34 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C44D421D79030C00065E34 /* Clock.swift */; };
 		D8C44D451D79037A00065E34 /* CoreGraphicsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C44D441D79037A00065E34 /* CoreGraphicsExtensions.swift */; };
 		D8F6E8211D7745B800E29842 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6E8201D7745B800E29842 /* AppDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		123A0DC727A17809F091E112 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		D8C44D421D79030C00065E34 /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		D8C44D441D79037A00065E34 /* CoreGraphicsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsExtensions.swift; sourceTree = "<group>"; };
 		D8F6E81D1D7745B800E29842 /* SwiftClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +68,7 @@
 				D8F6E8271D7745B800E29842 /* Assets.xcassets */,
 				D8F6E8291D7745B800E29842 /* LaunchScreen.storyboard */,
 				D8F6E82C1D7745B800E29842 /* Info.plist */,
+				123A0DC727A17809F091E112 /* DateExtensions.swift */,
 			);
 			path = SwiftClock;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				D8C44D451D79037A00065E34 /* CoreGraphicsExtensions.swift in Sources */,
 				D8F6E8231D7745B800E29842 /* ViewController.swift in Sources */,
 				D8F6E8211D7745B800E29842 /* AppDelegate.swift in Sources */,
+				123A04C87259B11D9D296278 /* DateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

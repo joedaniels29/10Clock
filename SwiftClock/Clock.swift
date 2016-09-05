@@ -13,14 +13,22 @@ protocol ClockDelegate {
     func timesChanged(clock:Clock, startDate:NSDate,  endDate:NSDate  ) -> ()
     
 }
+func medStepFunction(val: CGFloat, stepSize:CGFloat) -> CGFloat{
+    let nsf = floor(Double(val) / Double(stepSize))
+    let rest = Double(val) - stepSize * nsf
+    return CGFloat(rest > stepSize / 2 ? stepSize * (nsf + 1) : stepSize * nsf)
 
-
+}
+func angleToTime(input: CGFloat) -> CGFloat{
+    return CGFloat((Double(input) - M_PI_2)/(2 * M_PI) * 12*60)
+}
 //XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
 class Clock : UIControl{
     
     var delegate:ClockDelegate?
     //overall inset. Controls all sizes.
     var insetAmount: CGFloat = 60
+    var timeStepSize: CGFloat = 5
     let gradientLayer = CAGradientLayer()
     let trackLayer = CAShapeLayer()
     let pathLayer = CAShapeLayer()
@@ -84,15 +92,28 @@ class Clock : UIControl{
         return CGPointMake(center.x + trackRadius * cos(theta) ,
                            center.y - trackRadius * sin(theta) )
     }
-    
+
     var headPoint: CGPoint{
         return proj(headAngle)
     }
     var tailPoint: CGPoint{
         return proj(tailAngle)
     }
-    
-    
+    var headVal: CGFloat{
+        return medStepFunction(angleToTime(headAngle), timeStepSize)
+    }
+    var tailVal: CGFloat{
+        return medStepFunction(angleToTime(tailAngle), timeStepSize)
+    }
+    lazy internal var calendar = NSCalendar(identifier:NSCalendarIdentifierGregorian)
+    func toDate(val:CGFloat)-> NSDate {
+        let comps = NSDateComponents()
+        comps.minute = val
+        return calendar.dateByAddingComponents(comps, toDate: NSDate().startOfDay, options: nil)
+    }
+    var headDate: NSDate{ return toDate(headVal) }
+    var endDate: NSDate{ return toDate(tailVal) }
+
     var internalRadius:CGFloat {
         return internalInset.height
     }
@@ -123,15 +144,7 @@ class Clock : UIControl{
             pathLayer.strokeColor = strokeColor.CGColor
         }
     }
-    
-//    var toTime: Int{
-////        return proj(headAngle)
-//    }
-//    var fromTime: CGPoint{
-////        return proj(tailAngle)
-//    }
-    
-    
+
     
     func update() {
         strokeColor = tintColor

@@ -17,10 +17,13 @@ class ViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         refresh()
     }
+    var c:Clock?
+
+
+
     func injected(){
         refresh()
     }
-    var c:Clock?
     func refresh(){
         if let c=c{
             c.removeFromSuperview()
