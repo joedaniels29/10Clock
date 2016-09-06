@@ -14,9 +14,11 @@ protocol ClockDelegate {
     
 }
 func medStepFunction(val: CGFloat, stepSize:CGFloat) -> CGFloat{
-    let nsf = floor(Double(val) / Double(stepSize))
-    let rest = Double(val) - stepSize * nsf
-    return CGFloat(rest > stepSize / 2 ? stepSize * (nsf + 1) : stepSize * nsf)
+    let dStepSize = Double(stepSize)
+    let dval  = Double(val)
+    let nsf = floor(dval/dStepSize)
+    let rest = dval - dStepSize * nsf
+    return CGFloat(rest > dStepSize / 2 ? dStepSize * (nsf + 1) : dStepSize * nsf)
 
 }
 func angleToTime(input: CGFloat) -> CGFloat{
@@ -100,18 +102,18 @@ class Clock : UIControl{
         return proj(tailAngle)
     }
     var headVal: CGFloat{
-        return medStepFunction(angleToTime(headAngle), timeStepSize)
+        return medStepFunction(angleToTime(headAngle), stepSize: timeStepSize)
     }
     var tailVal: CGFloat{
-        return medStepFunction(angleToTime(tailAngle), timeStepSize)
+        return medStepFunction(angleToTime(tailAngle), stepSize: timeStepSize)
     }
     lazy internal var calendar = NSCalendar(identifier:NSCalendarIdentifierGregorian)
     func toDate(val:CGFloat)-> NSDate {
         let comps = NSDateComponents()
-        comps.minute = val
-        return calendar.dateByAddingComponents(comps, toDate: NSDate().startOfDay, options: nil)
+        comps.minute = Int(val)
+        return calendar!.dateByAddingComponents(comps, toDate: NSDate().startOfDay, options: [])!
     }
-    var headDate: NSDate{ return toDate(headVal) }
+    var startDate: NSDate{ return toDate(headVal) }
     var endDate: NSDate{ return toDate(tailVal) }
 
     var internalRadius:CGFloat {
@@ -413,12 +415,16 @@ class Clock : UIControl{
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         pointMover = nil
 //        do something
-        valueChanged = false
+//        valueChanged = false
     }
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         guard let touch = touches.first, pointMover = pointMover else { return }
         print(touch.locationInView(self))
         pointMover(touch.locationInView(self))
+        
+        if let delegate = delegate {
+            delegate.timesChanged(self, startDate: self.startDate, endDate: endDate)
+        }
         
     }
     

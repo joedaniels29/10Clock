@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "SwiftClock"
+  s.name         = "10Clock"
   s.version      = "0.0.1"
   s.summary      = ""
 
@@ -25,9 +25,10 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
+  This Control is a Time-of-day picker heavily inspired by the
                    DESC
 
-  s.homepage     = "https://github.com/joedaniels29/SwiftClock"
+  s.homepage     = "https://github.com/joedaniels29/10Clock"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -51,11 +52,10 @@ Pod::Spec.new do |s|
   #  Specify a social_media_url where others can refer to, for example a twitter
   #  profile URL.
   #
-
   s.author             = { "Joe" => "joedaniels29@me.com" }
   # Or just: s.author    = "Joe"
   # s.authors            = { "Joe" => "joedaniels29@me.com" }
-  # s.social_media_url   = "http://twitter.com/Joe"
+  s.social_media_url   = "http://twitter.com/joedaniels29"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -64,7 +64,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform     = :ios, "9.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/joedaniels29/SwiftClock.git", :commit => "009b1010f9db7a3f6d395b68be543e3c710154be" }
+  s.source       = { :git => "https://github.com/joedaniels29/10Clock.git", :commit => "009b1010f9db7a3f6d395b68be543e3c710154be" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,8 +90,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = "Classes", "10Clock/*.swift"
+  s.exclude_files = "SwiftClock/*"
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -116,7 +116,7 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  # s.framework  = "SomeFramework"
+  s.framework  = "CoreAnimation"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
