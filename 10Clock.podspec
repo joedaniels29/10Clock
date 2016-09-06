@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "10Clock"
   s.version      = "0.0.1"
-  s.summary      = ""
+  s.summary      = "Beautiful iOS Time Picker inspired by the ios 10 \"Bedtime\" Timer."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
+  s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -116,7 +116,7 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  s.framework  = "CoreAnimation"
+  #s.framework  = "CoreAnimation"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
