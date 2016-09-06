@@ -13,4 +13,4 @@ A great way to contribute would be to add a design!
 
 ## License
 
-Alamofire is released under the MIT license. See LICENSE for details.
+10Clock is released under the MIT license. See LICENSE for details.
