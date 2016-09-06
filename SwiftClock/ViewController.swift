@@ -7,9 +7,11 @@
 //
 
 import UIKit
-
-class ViewController: UIViewController {
-
+import SwiftClock
+class ViewController: UIViewController, ClockDelegate {
+    func timesChanged(clock:Clock, startDate:NSDate,  endDate:NSDate  ) -> (){
+        print("start at: \(startDate), end at: \(endDate)")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,6 +33,7 @@ class ViewController: UIViewController {
         }
         self.c = nil
         c = Clock(frame:CGRectMake(0,0, self.view.frame.width / CGFloat(arc4random_uniform(4)), self.view.frame.width))
+        c!.delegate = self
         self.view.addSubview(c!)
     }
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {

@@ -7,16 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		123A066D0195D6192061195B /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A0C52CF7F9A43C23EF319 /* Clock.swift */; };
-		123A0838E6FCF26F94EC9532 /* CoreGraphicsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A072C9B05F82F42BFA028 /* CoreGraphicsExtensions.swift */; };
-		123A0C6235BC7952561AB32C /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A0A5F3EBBDD4415A60AEF /* DateExtensions.swift */; };
 		D8B040301D7F2BB200B11B6A /* 10Clock.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B0402F1D7F2BB200B11B6A /* 10Clock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8B0403A1D7F69D700B11B6A /* CoreGraphicsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A072C9B05F82F42BFA028 /* CoreGraphicsExtensions.swift */; };
+		D8B0403C1D7F69D700B11B6A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A0A5F3EBBDD4415A60AEF /* DateExtensions.swift */; };
+		D8B0403F1D7F6A0A00B11B6A /* SwiftClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */; };
+		D8B040401D7F6A1200B11B6A /* SwiftClock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D8B040411D7F6AEB00B11B6A /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A0C52CF7F9A43C23EF319 /* Clock.swift */; };
+		D8B040491D7F6BDF00B11B6A /* SwiftClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B040481D7F6BDF00B11B6A /* SwiftClockTests.swift */; };
 		D8F6E8211D7745B800E29842 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6E8201D7745B800E29842 /* AppDelegate.swift */; };
 		D8F6E8231D7745B800E29842 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6E8221D7745B800E29842 /* ViewController.swift */; };
 		D8F6E8261D7745B800E29842 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F6E8241D7745B800E29842 /* Main.storyboard */; };
 		D8F6E8281D7745B800E29842 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8F6E8271D7745B800E29842 /* Assets.xcassets */; };
 		D8F6E82B1D7745B800E29842 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F6E8291D7745B800E29842 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D8B0403D1D7F6A0400B11B6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8F6E8151D7745B800E29842 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8B0402C1D7F2BB200B11B6A;
+			remoteInfo = SwiftClock;
+		};
+		D8B0404B1D7F6BDF00B11B6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8F6E8151D7745B800E29842 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8F6E81C1D7745B800E29842;
+			remoteInfo = SwiftClockSample;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D8B040391D7F2BB200B11B6A /* Embed Frameworks */ = {
@@ -25,6 +45,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D8B040401D7F6A1200B11B6A /* SwiftClock.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,6 +59,9 @@
 		D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftClock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B0402F1D7F2BB200B11B6A /* 10Clock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 10Clock.h; sourceTree = "<group>"; };
 		D8B040311D7F2BB200B11B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8B040461D7F6BDF00B11B6A /* SwiftClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8B040481D7F6BDF00B11B6A /* SwiftClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftClockTests.swift; sourceTree = "<group>"; };
+		D8B0404A1D7F6BDF00B11B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8F6E81D1D7745B800E29842 /* SwiftClockSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftClockSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F6E8201D7745B800E29842 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8F6E8221D7745B800E29842 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,10 +79,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8B040431D7F6BDF00B11B6A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D8F6E81A1D7745B800E29842 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8B0403F1D7F6A0A00B11B6A /* SwiftClock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,11 +116,21 @@
 			path = 10Clock;
 			sourceTree = "<group>";
 		};
+		D8B040471D7F6BDF00B11B6A /* SwiftClockTests */ = {
+			isa = PBXGroup;
+			children = (
+				D8B040481D7F6BDF00B11B6A /* SwiftClockTests.swift */,
+				D8B0404A1D7F6BDF00B11B6A /* Info.plist */,
+			);
+			path = SwiftClockTests;
+			sourceTree = "<group>";
+		};
 		D8F6E8141D7745B800E29842 = {
 			isa = PBXGroup;
 			children = (
 				D8F6E81F1D7745B800E29842 /* SwiftClock */,
 				D8B0402E1D7F2BB200B11B6A /* 10Clock */,
+				D8B040471D7F6BDF00B11B6A /* SwiftClockTests */,
 				D8F6E81E1D7745B800E29842 /* Products */,
 				123A04CDF1525E8D5F8C67B3 /* 10Clock */,
 			);
@@ -99,6 +141,7 @@
 			children = (
 				D8F6E81D1D7745B800E29842 /* SwiftClockSample.app */,
 				D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */,
+				D8B040461D7F6BDF00B11B6A /* SwiftClockTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,6 +191,24 @@
 			productReference = D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		D8B040451D7F6BDF00B11B6A /* SwiftClockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8B0404D1D7F6BDF00B11B6A /* Build configuration list for PBXNativeTarget "SwiftClockTests" */;
+			buildPhases = (
+				D8B040421D7F6BDF00B11B6A /* Sources */,
+				D8B040431D7F6BDF00B11B6A /* Frameworks */,
+				D8B040441D7F6BDF00B11B6A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8B0404C1D7F6BDF00B11B6A /* PBXTargetDependency */,
+			);
+			name = SwiftClockTests;
+			productName = SwiftClockTests;
+			productReference = D8B040461D7F6BDF00B11B6A /* SwiftClockTests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		D8F6E81C1D7745B800E29842 /* SwiftClockSample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8F6E82F1D7745B800E29842 /* Build configuration list for PBXNativeTarget "SwiftClockSample" */;
@@ -160,6 +221,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D8B0403E1D7F6A0400B11B6A /* PBXTargetDependency */,
 			);
 			name = SwiftClockSample;
 			productName = SwiftClock;
@@ -178,6 +240,10 @@
 				TargetAttributes = {
 					D8B0402C1D7F2BB200B11B6A = {
 						CreatedOnToolsVersion = 7.3.1;
+					};
+					D8B040451D7F6BDF00B11B6A = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = D8F6E81C1D7745B800E29842;
 					};
 					D8F6E81C1D7745B800E29842 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -199,12 +265,20 @@
 			targets = (
 				D8F6E81C1D7745B800E29842 /* SwiftClockSample */,
 				D8B0402C1D7F2BB200B11B6A /* SwiftClock */,
+				D8B040451D7F6BDF00B11B6A /* SwiftClockTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D8B0402B1D7F2BB200B11B6A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8B040441D7F6BDF00B11B6A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -228,6 +302,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8B040411D7F6AEB00B11B6A /* Clock.swift in Sources */,
+				D8B0403A1D7F69D700B11B6A /* CoreGraphicsExtensions.swift in Sources */,
+				D8B0403C1D7F69D700B11B6A /* DateExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8B040421D7F6BDF00B11B6A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8B040491D7F6BDF00B11B6A /* SwiftClockTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,13 +322,23 @@
 			files = (
 				D8F6E8231D7745B800E29842 /* ViewController.swift in Sources */,
 				D8F6E8211D7745B800E29842 /* AppDelegate.swift in Sources */,
-				123A0838E6FCF26F94EC9532 /* CoreGraphicsExtensions.swift in Sources */,
-				123A066D0195D6192061195B /* Clock.swift in Sources */,
-				123A0C6235BC7952561AB32C /* DateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8B0403E1D7F6A0400B11B6A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8B0402C1D7F2BB200B11B6A /* SwiftClock */;
+			targetProxy = D8B0403D1D7F6A0400B11B6A /* PBXContainerItemProxy */;
+		};
+		D8B0404C1D7F6BDF00B11B6A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8F6E81C1D7745B800E29842 /* SwiftClockSample */;
+			targetProxy = D8B0404B1D7F6BDF00B11B6A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D8F6E8241D7745B800E29842 /* Main.storyboard */ = {
@@ -300,6 +395,28 @@
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D8B0404E1D7F6BDF00B11B6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SwiftClockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JD.SwiftClockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SwiftClockSample;
+			};
+			name = Debug;
+		};
+		D8B0404F1D7F6BDF00B11B6A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SwiftClockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JD.SwiftClockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SwiftClockSample;
 			};
 			name = Release;
 		};
@@ -418,6 +535,14 @@
 			buildConfigurations = (
 				D8B040361D7F2BB200B11B6A /* Debug */,
 				D8B040371D7F2BB200B11B6A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D8B0404D1D7F6BDF00B11B6A /* Build configuration list for PBXNativeTarget "SwiftClockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8B0404E1D7F6BDF00B11B6A /* Debug */,
+				D8B0404F1D7F6BDF00B11B6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

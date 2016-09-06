@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol ClockDelegate {
+public protocol ClockDelegate {
     func timesChanged(clock:Clock, startDate:NSDate,  endDate:NSDate  ) -> ()
     
 }
@@ -25,9 +25,9 @@ func angleToTime(input: CGFloat) -> CGFloat{
     return CGFloat((Double(input) - M_PI_2)/(2 * M_PI) * 12*60)
 }
 //XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
-class Clock : UIControl{
+public class Clock : UIControl{
     
-    var delegate:ClockDelegate?
+    public var delegate:ClockDelegate?
     //overall inset. Controls all sizes.
     var insetAmount: CGFloat = 60
     var timeStepSize: CGFloat = 5
@@ -113,8 +113,22 @@ class Clock : UIControl{
         comps.minute = Int(val)
         return calendar!.dateByAddingComponents(comps, toDate: NSDate().startOfDay, options: [])!
     }
-    var startDate: NSDate{ return toDate(headVal) }
-    var endDate: NSDate{ return toDate(tailVal) }
+    var startDate: NSDate{
+        get{return toDate(headVal) }
+        set{
+            let comps = calendar!.components([.Hour, .Minute], fromDate: startDate)
+            let minSinceMid = comps.hour * 60 + comps.minute
+            _ = minSinceMid
+            }
+    }
+    var endDate: NSDate{
+        get{return toDate(tailVal) }
+        set{
+            let comps = calendar!.components([.Hour, .Minute], fromDate: startDate)
+            let minSinceMid = comps.hour * 60 + comps.minute
+            _ = minSinceMid
+        }
+    }
 
     var internalRadius:CGFloat {
         return internalInset.height
@@ -198,14 +212,14 @@ class Clock : UIControl{
         trackLayer.path = circle.CGPath
         
     }
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         update()
     }
     func updatePathLayerPath() {
         let arcCenter = CGPoint(x: pathLayer.bounds.width / 2.0, y: pathLayer.bounds.height / 2.0)
         pathLayer.fillColor = UIColor.clearColor().CGColor
         pathLayer.lineWidth = pathWidth
-        print("start = \(headAngle), end = \(tailAngle)")
+//        print("start = \(headAngle), end = \(tailAngle)")
         pathLayer.path = UIBezierPath(
             arcCenter: arcCenter,
             radius: trackRadius,
@@ -316,7 +330,7 @@ class Clock : UIControl{
         t.strokeColor = UIColor.whiteColor().CGColor
         t.position = CGPoint(x: repLayer.bounds.midX, y: 10)
         repLayer.addSublayer(t)
-        repLayer.position = repLayer.superlayer!.position
+        repLayer.position = self.bounds.center
         repLayer.bounds.size = self.internalInset.size
     
         repLayer2.sublayers?.forEach({$0.removeFromSuperlayer()})
@@ -325,7 +339,7 @@ class Clock : UIControl{
         t2.lineWidth = 2
         t2.position = CGPoint(x: repLayer2.bounds.midX, y: 10)
         repLayer2.addSublayer(t2)
-        repLayer2.position = repLayer2.superlayer!.position
+        repLayer2.position = self.bounds.center
         repLayer2.bounds.size = self.internalInset.size
     }
     var pointerLength: CGFloat = 0.0
@@ -347,7 +361,7 @@ class Clock : UIControl{
         update()
         strokeColor = tintColor
     }
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame:frame)
         self.addConstraint(NSLayoutConstraint(item: self, attribute: .Width, relatedBy: .Equal, toItem: self	, attribute: .Height, multiplier: 1, constant: 0))
         tintColor = UIColor ( red: 0.755, green: 0.0, blue: 1.0, alpha: 1.0 )
@@ -356,9 +370,12 @@ class Clock : UIControl{
     }
     
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         self.addConstraint(NSLayoutConstraint(item: self, attribute: .Width, relatedBy: .Equal, toItem: self	, attribute: .Height, multiplier: 1, constant: 0))
+        tintColor = UIColor ( red: 0.755, green: 0.0, blue: 1.0, alpha: 1.0 )
+        backgroundColor = UIColor ( red: 0.1149, green: 0.115, blue: 0.1149, alpha: 1.0 )
+        createSublayers()
     }
     
     
@@ -390,7 +407,7 @@ class Clock : UIControl{
     
     
     var pointMover:((CGPoint) ->())?
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //        touches.forEach { (touch) in
         let touch = touches.first!
         guard let layer = self.overallPathLayer.hitTest( touch.locationInView(self) ) else { return }
@@ -422,14 +439,14 @@ class Clock : UIControl{
         
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override public func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         pointMover = nil
 //        do something
 //        valueChanged = false
     }
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override public func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         guard let touch = touches.first, pointMover = pointMover else { return }
-        print(touch.locationInView(self))
+//        print(touch.locationInView(self))
         pointMover(touch.locationInView(self))
         
         if let delegate = delegate {

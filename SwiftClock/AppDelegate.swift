@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftClock
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
