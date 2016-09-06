@@ -11,24 +11,12 @@
 		123A0838E6FCF26F94EC9532 /* CoreGraphicsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A072C9B05F82F42BFA028 /* CoreGraphicsExtensions.swift */; };
 		123A0C6235BC7952561AB32C /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A0A5F3EBBDD4415A60AEF /* DateExtensions.swift */; };
 		D8B040301D7F2BB200B11B6A /* 10Clock.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B0402F1D7F2BB200B11B6A /* 10Clock.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D8B040341D7F2BB200B11B6A /* 10Clock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B0402D1D7F2BB200B11B6A /* 10Clock.framework */; };
-		D8B040351D7F2BB200B11B6A /* 10Clock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8B0402D1D7F2BB200B11B6A /* 10Clock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D8F6E8211D7745B800E29842 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6E8201D7745B800E29842 /* AppDelegate.swift */; };
 		D8F6E8231D7745B800E29842 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6E8221D7745B800E29842 /* ViewController.swift */; };
 		D8F6E8261D7745B800E29842 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F6E8241D7745B800E29842 /* Main.storyboard */; };
 		D8F6E8281D7745B800E29842 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8F6E8271D7745B800E29842 /* Assets.xcassets */; };
 		D8F6E82B1D7745B800E29842 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F6E8291D7745B800E29842 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D8B040321D7F2BB200B11B6A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D8F6E8151D7745B800E29842 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D8B0402C1D7F2BB200B11B6A;
-			remoteInfo = 10Clock;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D8B040391D7F2BB200B11B6A /* Embed Frameworks */ = {
@@ -37,7 +25,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D8B040351D7F2BB200B11B6A /* 10Clock.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,10 +35,10 @@
 		123A072C9B05F82F42BFA028 /* CoreGraphicsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsExtensions.swift; sourceTree = "<group>"; };
 		123A0A5F3EBBDD4415A60AEF /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		123A0C52CF7F9A43C23EF319 /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
-		D8B0402D1D7F2BB200B11B6A /* 10Clock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = 10Clock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftClock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B0402F1D7F2BB200B11B6A /* 10Clock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 10Clock.h; sourceTree = "<group>"; };
 		D8B040311D7F2BB200B11B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8F6E81D1D7745B800E29842 /* SwiftClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8F6E81D1D7745B800E29842 /* SwiftClockSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftClockSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F6E8201D7745B800E29842 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8F6E8221D7745B800E29842 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D8F6E8251D7745B800E29842 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,7 +59,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8B040341D7F2BB200B11B6A /* 10Clock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,8 +97,8 @@
 		D8F6E81E1D7745B800E29842 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D8F6E81D1D7745B800E29842 /* SwiftClock.app */,
-				D8B0402D1D7F2BB200B11B6A /* 10Clock.framework */,
+				D8F6E81D1D7745B800E29842 /* SwiftClockSample.app */,
+				D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,9 +130,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D8B0402C1D7F2BB200B11B6A /* 10Clock */ = {
+		D8B0402C1D7F2BB200B11B6A /* SwiftClock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D8B040381D7F2BB200B11B6A /* Build configuration list for PBXNativeTarget "10Clock" */;
+			buildConfigurationList = D8B040381D7F2BB200B11B6A /* Build configuration list for PBXNativeTarget "SwiftClock" */;
 			buildPhases = (
 				D8B040281D7F2BB200B11B6A /* Sources */,
 				D8B040291D7F2BB200B11B6A /* Frameworks */,
@@ -157,14 +143,14 @@
 			);
 			dependencies = (
 			);
-			name = 10Clock;
+			name = SwiftClock;
 			productName = 10Clock;
-			productReference = D8B0402D1D7F2BB200B11B6A /* 10Clock.framework */;
+			productReference = D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D8F6E81C1D7745B800E29842 /* SwiftClock */ = {
+		D8F6E81C1D7745B800E29842 /* SwiftClockSample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D8F6E82F1D7745B800E29842 /* Build configuration list for PBXNativeTarget "SwiftClock" */;
+			buildConfigurationList = D8F6E82F1D7745B800E29842 /* Build configuration list for PBXNativeTarget "SwiftClockSample" */;
 			buildPhases = (
 				D8F6E8191D7745B800E29842 /* Sources */,
 				D8F6E81A1D7745B800E29842 /* Frameworks */,
@@ -174,11 +160,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				D8B040331D7F2BB200B11B6A /* PBXTargetDependency */,
 			);
-			name = SwiftClock;
+			name = SwiftClockSample;
 			productName = SwiftClock;
-			productReference = D8F6E81D1D7745B800E29842 /* SwiftClock.app */;
+			productReference = D8F6E81D1D7745B800E29842 /* SwiftClockSample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -212,8 +197,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D8F6E81C1D7745B800E29842 /* SwiftClock */,
-				D8B0402C1D7F2BB200B11B6A /* 10Clock */,
+				D8F6E81C1D7745B800E29842 /* SwiftClockSample */,
+				D8B0402C1D7F2BB200B11B6A /* SwiftClock */,
 			);
 		};
 /* End PBXProject section */
@@ -259,14 +244,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D8B040331D7F2BB200B11B6A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D8B0402C1D7F2BB200B11B6A /* 10Clock */;
-			targetProxy = D8B040321D7F2BB200B11B6A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D8F6E8241D7745B800E29842 /* Main.storyboard */ = {
@@ -436,7 +413,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D8B040381D7F2BB200B11B6A /* Build configuration list for PBXNativeTarget "10Clock" */ = {
+		D8B040381D7F2BB200B11B6A /* Build configuration list for PBXNativeTarget "SwiftClock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D8B040361D7F2BB200B11B6A /* Debug */,
@@ -453,7 +430,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D8F6E82F1D7745B800E29842 /* Build configuration list for PBXNativeTarget "SwiftClock" */ = {
+		D8F6E82F1D7745B800E29842 /* Build configuration list for PBXNativeTarget "SwiftClockSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D8F6E8301D7745B800E29842 /* Debug */,

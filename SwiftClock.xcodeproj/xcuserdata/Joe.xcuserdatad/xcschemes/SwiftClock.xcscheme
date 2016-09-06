@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D8F6E81C1D7745B800E29842"
-               BuildableName = "SwiftClock.app"
-               BlueprintName = "SwiftClock"
+               BuildableName = "SwiftClockSample.app"
+               BlueprintName = "SwiftClockSample"
                ReferencedContainer = "container:SwiftClock.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D8F6E81C1D7745B800E29842"
-            BuildableName = "SwiftClock.app"
-            BlueprintName = "SwiftClock"
+            BuildableName = "SwiftClockSample.app"
+            BlueprintName = "SwiftClockSample"
             ReferencedContainer = "container:SwiftClock.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D8F6E81C1D7745B800E29842"
-            BuildableName = "SwiftClock.app"
-            BlueprintName = "SwiftClock"
+            BuildableName = "SwiftClockSample.app"
+            BlueprintName = "SwiftClockSample"
             ReferencedContainer = "container:SwiftClock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D8F6E81C1D7745B800E29842"
-            BuildableName = "SwiftClock.app"
-            BlueprintName = "SwiftClock"
+            BuildableName = "SwiftClockSample.app"
+            BlueprintName = "SwiftClockSample"
             ReferencedContainer = "container:SwiftClock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

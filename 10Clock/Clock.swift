@@ -149,11 +149,19 @@ class Clock : UIControl{
 
     
     func update() {
+        let mm = min(self.layer.bounds.size.height, self.layer.bounds.size.width)
+        self.layer.bounds.size = CGSize(width: mm, height: mm)
+        self.layer.position = self.bounds.center
         strokeColor = tintColor
         overallPathLayer.frame = self.layer.bounds
+        overallPathLayer.position = self.layer.position
         gradientLayer.frame = self.layer.bounds
-        trackLayer.frame = inset
+        gradientLayer.position = self.layer.position
+        trackLayer.frame.size = inset.size
+        trackLayer.position = self.layer.position
+        
         pathLayer.frame = inset
+        pathLayer.position = self.layer.position
         repLayer.frame = internalInset
         repLayer2.frame = internalInset
         numeralsLayer.frame = numeralInset
@@ -190,7 +198,9 @@ class Clock : UIControl{
         trackLayer.path = circle.CGPath
         
     }
-    
+    override func layoutSubviews() {
+        update()
+    }
     func updatePathLayerPath() {
         let arcCenter = CGPoint(x: pathLayer.bounds.width / 2.0, y: pathLayer.bounds.height / 2.0)
         pathLayer.fillColor = UIColor.clearColor().CGColor

@@ -30,10 +30,12 @@ class ViewController: UIViewController {
             
         }
         self.c = nil
-        c = Clock(frame:CGRectMake(0,0,self.view.frame.width, self.view.frame.width))
+        c = Clock(frame:CGRectMake(0,0, self.view.frame.width / CGFloat(arc4random_uniform(4)), self.view.frame.width))
         self.view.addSubview(c!)
     }
-    
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        refresh()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
