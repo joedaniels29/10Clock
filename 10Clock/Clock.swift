@@ -342,7 +342,7 @@ public class Clock : UIControl{
         repLayer2.position = self.bounds.center
         repLayer2.bounds.size = self.internalInset.size
     }
-    var pointerLength: CGFloat = 0.0
+    var pointerLength:CGFloat = 0.0
     
     func createSublayers() {
         layer.addSublayer(repLayer2)
