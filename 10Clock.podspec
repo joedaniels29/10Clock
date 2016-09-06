@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-  This Control is a Time-of-day picker heavily inspired by the iOS 10 "Bedtime" timer.
+  This Control is a beautiful time-of-day picker heavily inspired by the iOS 10 "Bedtime" timer.
                    DESC
 
   s.homepage     = "https://github.com/joedaniels29/10Clock"
