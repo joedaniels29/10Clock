@@ -349,7 +349,7 @@ public class Clock : UIControl{
         layer.addSublayer(repLayer)
         layer.addSublayer(numeralsLayer)
         layer.addSublayer(trackLayer)
-        
+         
         overallPathLayer.addSublayer(pathLayer)
         overallPathLayer.addSublayer(headLayer)
         overallPathLayer.addSublayer(tailLayer)
