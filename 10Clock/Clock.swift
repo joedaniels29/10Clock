@@ -285,7 +285,7 @@ class Clock : UIControl{
         titleTextLayer.font = cgFont
         var computedTailAngle = tailAngle + (headAngle > tailAngle ? twoPi : 0)
         computedTailAngle +=  (headAngle > computedTailAngle ? twoPi : 0)
-        var fiveMinIncrements = Int( (abs(tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/)
+        let fiveMinIncrements = Int( (abs(tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/)
         titleTextLayer.string = "\(fiveMinIncrements / 12)hr \((fiveMinIncrements % 12) * 5)min"
         titleTextLayer.position = gradientLayer.bounds.center
         
@@ -382,13 +382,13 @@ class Clock : UIControl{
     var pointMover:((CGPoint) ->())?
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //        touches.forEach { (touch) in
-        var touch = touches.first!
+        let touch = touches.first!
         guard let layer = self.overallPathLayer.hitTest( touch.locationInView(self) ) else { return }
         
         let pp: (() -> Angle, Angle->()) -> (CGPoint) -> () = { g, s in
             return { p in
                 let c = self.layer.frame.center
-                var computedP = CGPointMake(p.x, self.layer.frame.height - p.y)
+                let computedP = CGPointMake(p.x, self.layer.frame.height - p.y)
                 let v1 = CGVector(from: c, to: computedP)
                 let v2 = CGVector(angle:g())
                 
