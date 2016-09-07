@@ -27,12 +27,13 @@ class ViewController: UIViewController, ClockDelegate {
         refresh()
     }
     func refresh(){
+
         if let c=c{
             c.removeFromSuperview()
             
         }
         self.c = nil
-        c = Clock(frame:CGRectMake(0,0, self.view.frame.width / CGFloat(arc4random_uniform(4)), self.view.frame.width))
+        c = Clock(frame:CGRectMake(15,0, self.view.frame.width /*/ (CGFloat(arc4random_uniform(4))+1)*/, self.view.frame.width))
         c!.delegate = self
         self.view.addSubview(c!)
     }

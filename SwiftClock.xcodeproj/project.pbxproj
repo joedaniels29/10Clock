@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		123A00098C8A1EB16C8B2BAC /* CoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A0EBFF5B6F30085CBA25B /* CoreAnimation.swift */; };
 		D8B040301D7F2BB200B11B6A /* 10Clock.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B0402F1D7F2BB200B11B6A /* 10Clock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8B0403A1D7F69D700B11B6A /* CoreGraphicsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A072C9B05F82F42BFA028 /* CoreGraphicsExtensions.swift */; };
 		D8B0403C1D7F69D700B11B6A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A0A5F3EBBDD4415A60AEF /* DateExtensions.swift */; };
@@ -56,6 +57,7 @@
 		123A072C9B05F82F42BFA028 /* CoreGraphicsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsExtensions.swift; sourceTree = "<group>"; };
 		123A0A5F3EBBDD4415A60AEF /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		123A0C52CF7F9A43C23EF319 /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
+		123A0EBFF5B6F30085CBA25B /* CoreAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreAnimation.swift; sourceTree = "<group>"; };
 		D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftClock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B0402F1D7F2BB200B11B6A /* 10Clock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 10Clock.h; sourceTree = "<group>"; };
 		D8B040311D7F2BB200B11B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				123A072C9B05F82F42BFA028 /* CoreGraphicsExtensions.swift */,
 				123A0C52CF7F9A43C23EF319 /* Clock.swift */,
 				123A0A5F3EBBDD4415A60AEF /* DateExtensions.swift */,
+				123A0EBFF5B6F30085CBA25B /* CoreAnimation.swift */,
 			);
 			path = 10Clock;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				D8B040411D7F6AEB00B11B6A /* Clock.swift in Sources */,
 				D8B0403A1D7F69D700B11B6A /* CoreGraphicsExtensions.swift in Sources */,
 				D8B0403C1D7F69D700B11B6A /* DateExtensions.swift in Sources */,
+				123A00098C8A1EB16C8B2BAC /* CoreAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

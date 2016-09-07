@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public protocol ClockDelegate {
+@objc public  protocol ClockDelegate {
     func timesChanged(clock:Clock, startDate:NSDate,  endDate:NSDate  ) -> ()
     
 }
@@ -90,7 +90,7 @@ public class Clock : UIControl{
     
     var trackWidth:CGFloat {return pathWidth }
     func proj(theta:Angle) -> CGPoint{
-        let center = CGPointMake( self.layer.frame.midX, self.layer.frame.midY)
+        let center = self.layer.center
         return CGPointMake(center.x + trackRadius * cos(theta) ,
                            center.y - trackRadius * sin(theta) )
     }
@@ -145,7 +145,7 @@ public class Clock : UIControl{
         return CGRectInset(self.inset, reInsetAmount, reInsetAmount)
     }
     var titleTextInset:CGRect{
-        let reInsetAmount = trackWidth / 2 + 4 * internalShift
+        let reInsetAmount = trackWidth.checked / 2 + 4 * internalShift
         return CGRectInset(self.inset, reInsetAmount, reInsetAmount)
     }
     var trackRadius:CGFloat { return inset.height / 2}
@@ -164,28 +164,24 @@ public class Clock : UIControl{
     
     func update() {
         let mm = min(self.layer.bounds.size.height, self.layer.bounds.size.width)
-        self.layer.bounds.size = CGSize(width: mm, height: mm)
+        CATransaction.begin()
+        self.layer.size = CGSize(width: mm, height: mm)
         self.layer.position = self.bounds.center
         strokeColor = tintColor
-        overallPathLayer.frame = self.layer.bounds
-        overallPathLayer.position = self.layer.position
-        gradientLayer.frame = self.layer.bounds
-        gradientLayer.position = self.layer.position
-        trackLayer.frame.size = inset.size
-        trackLayer.position = self.layer.position
-        
-        pathLayer.frame = inset
-        pathLayer.position = self.layer.position
-        repLayer.frame = internalInset
-        repLayer2.frame = internalInset
-        numeralsLayer.frame = numeralInset
-        
-        pathLayer.lineWidth = pathWidth
-        trackLayer.lineWidth = trackWidth
+        overallPathLayer.occupation = layer.occupation
+        gradientLayer.occupation = layer.occupation
+
+        trackLayer.occupation = (inset.size, layer.center)
+
+        pathLayer.occupation = (inset.size, overallPathLayer.center)
+        repLayer.occupation = (internalInset.size, overallPathLayer.center)
+        repLayer2.occupation  =  (internalInset.size, overallPathLayer.center)
+        numeralsLayer.occupation = (numeralInset.size, layer.center)
         
         trackLayer.fillColor = UIColor.clearColor().CGColor
         pathLayer.fillColor = UIColor.clearColor().CGColor
-        CATransaction.begin()
+
+        
         CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
         updateGradientLayer()
         updateTrackLayerPath()
@@ -195,6 +191,7 @@ public class Clock : UIControl{
         updateWatchFaceNumerals()
         updateWatchFaceTitle()
         CATransaction.commit()
+
     }
     func updateGradientLayer() {
         gradientLayer.colors = [UIColor ( red: 0.7011, green: 0.0, blue: 1.0, alpha: 1.0 ).CGColor, UIColor ( red: 0.9992, green: 0.0, blue: 0.5578, alpha: 1.0 ).CGColor]
@@ -206,8 +203,8 @@ public class Clock : UIControl{
         let circle = UIBezierPath(
             ovalInRect: CGRect(
                 origin:CGPoint(x: 0, y: 00),
-                size: CGSize(width:trackLayer.frame.width,
-                    height: trackLayer.frame.width)))
+                size: CGSize(width:trackLayer.size.width,
+                    height: trackLayer.size.width)))
         trackLayer.lineWidth = pathWidth
         trackLayer.path = circle.CGPath
         
@@ -216,7 +213,7 @@ public class Clock : UIControl{
         update()
     }
     func updatePathLayerPath() {
-        let arcCenter = CGPoint(x: pathLayer.bounds.width / 2.0, y: pathLayer.bounds.height / 2.0)
+        let arcCenter = pathLayer.center
         pathLayer.fillColor = UIColor.clearColor().CGColor
         pathLayer.lineWidth = pathWidth
 //        print("start = \(headAngle), end = \(tailAngle)")
@@ -251,8 +248,8 @@ public class Clock : UIControl{
         let iCircle = UIBezierPath(ovalInRect: CGRect(origin: CGPoint(x: 0, y:0), size: iSize)).CGPath
         tailLayer.path = circle
         headLayer.path = circle
-        tailLayer.bounds.size = size
-        headLayer.bounds.size = size
+        tailLayer.size = size
+        headLayer.size = size
         tailLayer.position = tailPoint
         headLayer.position = headPoint
         topTailLayer.position = tailPoint
@@ -261,16 +258,16 @@ public class Clock : UIControl{
         tailLayer.fillColor = UIColor.greenColor().CGColor
         topTailLayer.path = iCircle
         topHeadLayer.path = iCircle
-        topTailLayer.bounds.size = iSize
-        topHeadLayer.bounds.size = iSize
+        topTailLayer.size = iSize
+        topHeadLayer.size = iSize
         topHeadLayer.fillColor = UIColor ( red: 0.1172, green: 0.1172, blue: 0.1172, alpha: 1.0 ).CGColor
         topTailLayer.fillColor = UIColor ( red: 0.0645, green: 0.0645, blue: 0.0645, alpha: 1.0 ).CGColor
         topHeadLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
         topTailLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
         let stText = tlabel("Sleep")
         let endText = tlabel("Wake")
-        stText.position = topHeadLayer.bounds.center
-        endText.position = topTailLayer.bounds.center
+        stText.position = topHeadLayer.center
+        endText.position = topTailLayer.center
         topHeadLayer.addSublayer(stText)
         topTailLayer.addSublayer(endText)
     }
@@ -281,7 +278,7 @@ public class Clock : UIControl{
         let f = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption2)
         let cgFont = CTFontCreateWithName(f.fontName, f.pointSize/2,nil)
         let startPos = CGPoint(x: numeralsLayer.bounds.midX, y: 15)
-        let origin = numeralsLayer.bounds.center
+        let origin = numeralsLayer.center
         let step = (2 * M_PI) / 12
         for i in (1 ... 12){
             let l = CATextLayer()
@@ -293,7 +290,7 @@ public class Clock : UIControl{
             l.font = cgFont
             l.string = "\(i)"
             l.foregroundColor = UIColor.lightGrayColor().CGColor
-            l.position = CGVector(from:origin, to:startPos).rotate( CGFloat(Double(i) * step)).add(origin.vector).point
+            l.position = CGVector(from:origin, to:startPos).rotate( CGFloat(Double(i) * step)).add(origin.vector).point.checked
             numeralsLayer.addSublayer(l)
         }
     }
@@ -311,7 +308,7 @@ public class Clock : UIControl{
         computedTailAngle +=  (headAngle > computedTailAngle ? twoPi : 0)
         let fiveMinIncrements = Int( (abs(tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/)
         titleTextLayer.string = "\(fiveMinIncrements / 12)hr \((fiveMinIncrements % 12) * 5)min"
-        titleTextLayer.position = gradientLayer.bounds.center
+        titleTextLayer.position = gradientLayer.center
         
     }
     func tick() -> CAShapeLayer{
@@ -414,8 +411,8 @@ public class Clock : UIControl{
         
         let pp: (() -> Angle, Angle->()) -> (CGPoint) -> () = { g, s in
             return { p in
-                let c = self.layer.frame.center
-                let computedP = CGPointMake(p.x, self.layer.frame.height - p.y)
+                let c = self.layer.center
+                let computedP = CGPointMake(p.x, self.layer.bounds.height - p.y)
                 let v1 = CGVector(from: c, to: computedP)
                 let v2 = CGVector(angle:g())
                 
