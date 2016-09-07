@@ -166,7 +166,7 @@ public class Clock : UIControl{
         let mm = min(self.layer.bounds.size.height, self.layer.bounds.size.width)
         CATransaction.begin()
         self.layer.size = CGSize(width: mm, height: mm)
-        self.layer.position = self.bounds.center
+
         strokeColor = tintColor
         overallPathLayer.occupation = layer.occupation
         gradientLayer.occupation = layer.occupation
