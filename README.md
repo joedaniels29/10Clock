@@ -1,6 +1,7 @@
 #SwiftClock
 ![pods](https://img.shields.io/cocoapods/v/10Clock.svg?style=flat)
 ![MIT](https://img.shields.io/cocoapods/v/10Clock.svg?style=flat)
+[![Build Status](https://travis-ci.org/joedaniels29/10Clock.svg?branch=master)](https://travis-ci.org/joedaniels29/10Clock)
 
 ###Pics:
 
