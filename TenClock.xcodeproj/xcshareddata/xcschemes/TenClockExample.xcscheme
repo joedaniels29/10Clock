@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D8F6E81C1D7745B800E29842"
-               BuildableName = "SwiftClockSample.app"
-               BlueprintName = "SwiftClockSample"
-               ReferencedContainer = "container:SwiftClock.xcodeproj">
+               BuildableName = "TenClockSample.app"
+               BlueprintName = "TenClockSample"
+               ReferencedContainer = "container:TenClock.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D8B040451D7F6BDF00B11B6A"
-               BuildableName = "SwiftClockTests.xctest"
-               BlueprintName = "SwiftClockTests"
-               ReferencedContainer = "container:SwiftClock.xcodeproj">
+               BuildableName = "TenClockTests.xctest"
+               BlueprintName = "TenClockTests"
+               ReferencedContainer = "container:TenClock.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D8F6E81C1D7745B800E29842"
-            BuildableName = "SwiftClockSample.app"
-            BlueprintName = "SwiftClockSample"
-            ReferencedContainer = "container:SwiftClock.xcodeproj">
+            BuildableName = "TenClockSample.app"
+            BlueprintName = "TenClockSample"
+            ReferencedContainer = "container:TenClock.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D8F6E81C1D7745B800E29842"
-            BuildableName = "SwiftClockSample.app"
-            BlueprintName = "SwiftClockSample"
-            ReferencedContainer = "container:SwiftClock.xcodeproj">
+            BuildableName = "TenClockSample.app"
+            BlueprintName = "TenClockSample"
+            ReferencedContainer = "container:TenClock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D8F6E81C1D7745B800E29842"
-            BuildableName = "SwiftClockSample.app"
-            BlueprintName = "SwiftClockSample"
-            ReferencedContainer = "container:SwiftClock.xcodeproj">
+            BuildableName = "TenClockSample.app"
+            BlueprintName = "TenClockSample"
+            ReferencedContainer = "container:TenClock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

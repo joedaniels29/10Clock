@@ -1,5 +1,5 @@
-framework module 10Clock {
-    umbrella header "10Clock.h"
+framework module TenClock {
+    umbrella header "TenClock.h"
     
     export *
     module * { export * }

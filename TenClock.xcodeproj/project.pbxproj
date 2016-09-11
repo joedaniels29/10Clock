@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		123A00098C8A1EB16C8B2BAC /* CoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A0EBFF5B6F30085CBA25B /* CoreAnimation.swift */; };
-		D8B040301D7F2BB200B11B6A /* 10Clock.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B0402F1D7F2BB200B11B6A /* 10Clock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8B040301D7F2BB200B11B6A /* TenClock.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B0402F1D7F2BB200B11B6A /* TenClock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8B0403A1D7F69D700B11B6A /* CoreGraphicsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A072C9B05F82F42BFA028 /* CoreGraphicsExtensions.swift */; };
 		D8B0403C1D7F69D700B11B6A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A0A5F3EBBDD4415A60AEF /* DateExtensions.swift */; };
-		D8B0403F1D7F6A0A00B11B6A /* SwiftClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */; };
-		D8B040401D7F6A1200B11B6A /* SwiftClock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D8B0403F1D7F6A0A00B11B6A /* TenClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B0402D1D7F2BB200B11B6A /* TenClock.framework */; };
+		D8B040401D7F6A1200B11B6A /* TenClock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8B0402D1D7F2BB200B11B6A /* TenClock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D8B040411D7F6AEB00B11B6A /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A0C52CF7F9A43C23EF319 /* Clock.swift */; };
 		D8B040491D7F6BDF00B11B6A /* SwiftClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B040481D7F6BDF00B11B6A /* SwiftClockTests.swift */; };
 		D8F6E8211D7745B800E29842 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6E8201D7745B800E29842 /* AppDelegate.swift */; };
@@ -46,7 +46,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D8B040401D7F6A1200B11B6A /* SwiftClock.framework in Embed Frameworks */,
+				D8B040401D7F6A1200B11B6A /* TenClock.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,13 +59,13 @@
 		123A0C52CF7F9A43C23EF319 /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		123A0EBFF5B6F30085CBA25B /* CoreAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreAnimation.swift; sourceTree = "<group>"; };
 		D82D37F71D850C44004BB61C /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftClock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8B0402F1D7F2BB200B11B6A /* 10Clock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 10Clock.h; sourceTree = "<group>"; };
+		D8B0402D1D7F2BB200B11B6A /* TenClock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TenClock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8B0402F1D7F2BB200B11B6A /* TenClock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TenClock.h; sourceTree = "<group>"; };
 		D8B040311D7F2BB200B11B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8B040461D7F6BDF00B11B6A /* SwiftClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8B040461D7F6BDF00B11B6A /* TenClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TenClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B040481D7F6BDF00B11B6A /* SwiftClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftClockTests.swift; sourceTree = "<group>"; };
 		D8B0404A1D7F6BDF00B11B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8F6E81D1D7745B800E29842 /* SwiftClockSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftClockSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8F6E81D1D7745B800E29842 /* TenClockSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenClockSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F6E8201D7745B800E29842 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8F6E8221D7745B800E29842 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D8F6E8251D7745B800E29842 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8B0403F1D7F6A0A00B11B6A /* SwiftClock.framework in Frameworks */,
+				D8B0403F1D7F6A0A00B11B6A /* TenClock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +103,7 @@
 		123A04CDF1525E8D5F8C67B3 /* 10Clock */ = {
 			isa = PBXGroup;
 			children = (
-				D8B0402F1D7F2BB200B11B6A /* 10Clock.h */,
+				D8B0402F1D7F2BB200B11B6A /* TenClock.h */,
 				123A072C9B05F82F42BFA028 /* CoreGraphicsExtensions.swift */,
 				123A0C52CF7F9A43C23EF319 /* Clock.swift */,
 				D82D37F71D850C44004BB61C /* module.modulemap */,
@@ -144,9 +144,9 @@
 		D8F6E81E1D7745B800E29842 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D8F6E81D1D7745B800E29842 /* SwiftClockSample.app */,
-				D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */,
-				D8B040461D7F6BDF00B11B6A /* SwiftClockTests.xctest */,
+				D8F6E81D1D7745B800E29842 /* TenClockSample.app */,
+				D8B0402D1D7F2BB200B11B6A /* TenClock.framework */,
+				D8B040461D7F6BDF00B11B6A /* TenClockTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,16 +171,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8B040301D7F2BB200B11B6A /* 10Clock.h in Headers */,
+				D8B040301D7F2BB200B11B6A /* TenClock.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D8B0402C1D7F2BB200B11B6A /* SwiftClock */ = {
+		D8B0402C1D7F2BB200B11B6A /* TenClock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D8B040381D7F2BB200B11B6A /* Build configuration list for PBXNativeTarget "SwiftClock" */;
+			buildConfigurationList = D8B040381D7F2BB200B11B6A /* Build configuration list for PBXNativeTarget "TenClock" */;
 			buildPhases = (
 				D8B040281D7F2BB200B11B6A /* Sources */,
 				D8B040291D7F2BB200B11B6A /* Frameworks */,
@@ -191,14 +191,14 @@
 			);
 			dependencies = (
 			);
-			name = SwiftClock;
+			name = TenClock;
 			productName = 10Clock;
-			productReference = D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */;
+			productReference = D8B0402D1D7F2BB200B11B6A /* TenClock.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D8B040451D7F6BDF00B11B6A /* SwiftClockTests */ = {
+		D8B040451D7F6BDF00B11B6A /* TenClockTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D8B0404D1D7F6BDF00B11B6A /* Build configuration list for PBXNativeTarget "SwiftClockTests" */;
+			buildConfigurationList = D8B0404D1D7F6BDF00B11B6A /* Build configuration list for PBXNativeTarget "TenClockTests" */;
 			buildPhases = (
 				D8B040421D7F6BDF00B11B6A /* Sources */,
 				D8B040431D7F6BDF00B11B6A /* Frameworks */,
@@ -209,14 +209,14 @@
 			dependencies = (
 				D8B0404C1D7F6BDF00B11B6A /* PBXTargetDependency */,
 			);
-			name = SwiftClockTests;
+			name = TenClockTests;
 			productName = SwiftClockTests;
-			productReference = D8B040461D7F6BDF00B11B6A /* SwiftClockTests.xctest */;
+			productReference = D8B040461D7F6BDF00B11B6A /* TenClockTests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		D8F6E81C1D7745B800E29842 /* SwiftClockSample */ = {
+		D8F6E81C1D7745B800E29842 /* TenClockSample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D8F6E82F1D7745B800E29842 /* Build configuration list for PBXNativeTarget "SwiftClockSample" */;
+			buildConfigurationList = D8F6E82F1D7745B800E29842 /* Build configuration list for PBXNativeTarget "TenClockSample" */;
 			buildPhases = (
 				D8F6E8191D7745B800E29842 /* Sources */,
 				D8F6E81A1D7745B800E29842 /* Frameworks */,
@@ -228,9 +228,9 @@
 			dependencies = (
 				D8B0403E1D7F6A0400B11B6A /* PBXTargetDependency */,
 			);
-			name = SwiftClockSample;
+			name = TenClockSample;
 			productName = SwiftClock;
-			productReference = D8F6E81D1D7745B800E29842 /* SwiftClockSample.app */;
+			productReference = D8F6E81D1D7745B800E29842 /* TenClockSample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -255,7 +255,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D8F6E8181D7745B800E29842 /* Build configuration list for PBXProject "SwiftClock" */;
+			buildConfigurationList = D8F6E8181D7745B800E29842 /* Build configuration list for PBXProject "TenClock" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -268,9 +268,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D8F6E81C1D7745B800E29842 /* SwiftClockSample */,
-				D8B0402C1D7F2BB200B11B6A /* SwiftClock */,
-				D8B040451D7F6BDF00B11B6A /* SwiftClockTests */,
+				D8F6E81C1D7745B800E29842 /* TenClockSample */,
+				D8B0402C1D7F2BB200B11B6A /* TenClock */,
+				D8B040451D7F6BDF00B11B6A /* TenClockTests */,
 			);
 		};
 /* End PBXProject section */
@@ -336,12 +336,12 @@
 /* Begin PBXTargetDependency section */
 		D8B0403E1D7F6A0400B11B6A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D8B0402C1D7F2BB200B11B6A /* SwiftClock */;
+			target = D8B0402C1D7F2BB200B11B6A /* TenClock */;
 			targetProxy = D8B0403D1D7F6A0400B11B6A /* PBXContainerItemProxy */;
 		};
 		D8B0404C1D7F6BDF00B11B6A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D8F6E81C1D7745B800E29842 /* SwiftClockSample */;
+			target = D8F6E81C1D7745B800E29842 /* TenClockSample */;
 			targetProxy = D8B0404B1D7F6BDF00B11B6A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -536,7 +536,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D8B040381D7F2BB200B11B6A /* Build configuration list for PBXNativeTarget "SwiftClock" */ = {
+		D8B040381D7F2BB200B11B6A /* Build configuration list for PBXNativeTarget "TenClock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D8B040361D7F2BB200B11B6A /* Debug */,
@@ -545,7 +545,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D8B0404D1D7F6BDF00B11B6A /* Build configuration list for PBXNativeTarget "SwiftClockTests" */ = {
+		D8B0404D1D7F6BDF00B11B6A /* Build configuration list for PBXNativeTarget "TenClockTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D8B0404E1D7F6BDF00B11B6A /* Debug */,
@@ -554,7 +554,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D8F6E8181D7745B800E29842 /* Build configuration list for PBXProject "SwiftClock" */ = {
+		D8F6E8181D7745B800E29842 /* Build configuration list for PBXProject "TenClock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D8F6E82D1D7745B800E29842 /* Debug */,
@@ -563,7 +563,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D8F6E82F1D7745B800E29842 /* Build configuration list for PBXNativeTarget "SwiftClockSample" */ = {
+		D8F6E82F1D7745B800E29842 /* Build configuration list for PBXNativeTarget "TenClockSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D8F6E8301D7745B800E29842 /* Debug */,

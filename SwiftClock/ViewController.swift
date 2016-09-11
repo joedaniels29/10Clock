@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftClock
+import TenClock
 class ViewController: UIViewController, ClockDelegate {
     func timesChanged(clock:Clock, startDate:NSDate,  endDate:NSDate  ) -> (){
         print("start at: \(startDate), end at: \(endDate)")
