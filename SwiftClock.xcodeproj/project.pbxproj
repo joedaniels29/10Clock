@@ -58,6 +58,7 @@
 		123A0A5F3EBBDD4415A60AEF /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		123A0C52CF7F9A43C23EF319 /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		123A0EBFF5B6F30085CBA25B /* CoreAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreAnimation.swift; sourceTree = "<group>"; };
+		D82D37F71D850C44004BB61C /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		D8B0402D1D7F2BB200B11B6A /* SwiftClock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftClock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B0402F1D7F2BB200B11B6A /* 10Clock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 10Clock.h; sourceTree = "<group>"; };
 		D8B040311D7F2BB200B11B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,8 +103,10 @@
 		123A04CDF1525E8D5F8C67B3 /* 10Clock */ = {
 			isa = PBXGroup;
 			children = (
+				D8B0402F1D7F2BB200B11B6A /* 10Clock.h */,
 				123A072C9B05F82F42BFA028 /* CoreGraphicsExtensions.swift */,
 				123A0C52CF7F9A43C23EF319 /* Clock.swift */,
+				D82D37F71D850C44004BB61C /* module.modulemap */,
 				123A0A5F3EBBDD4415A60AEF /* DateExtensions.swift */,
 				123A0EBFF5B6F30085CBA25B /* CoreAnimation.swift */,
 			);
@@ -113,7 +116,6 @@
 		D8B0402E1D7F2BB200B11B6A /* 10Clock */ = {
 			isa = PBXGroup;
 			children = (
-				D8B0402F1D7F2BB200B11B6A /* 10Clock.h */,
 				D8B040311D7F2BB200B11B6A /* Info.plist */,
 			);
 			path = 10Clock;
@@ -541,6 +543,7 @@
 				D8B040371D7F2BB200B11B6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8B0404D1D7F6BDF00B11B6A /* Build configuration list for PBXNativeTarget "SwiftClockTests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +552,7 @@
 				D8B0404F1D7F6BDF00B11B6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8F6E8181D7745B800E29842 /* Build configuration list for PBXProject "SwiftClock" */ = {
 			isa = XCConfigurationList;
