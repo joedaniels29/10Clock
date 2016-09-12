@@ -7,9 +7,6 @@ env:
   - PROJECT=TenClock.xcodeproj
   - IOS_FRAMEWORK_SCHEME="TenClock"
   - IOS_SDK=iphonesimulator10.0
-  - OSX_SDK=macosx10.12
-  - TVOS_SDK=appletvsimulator10.0
-  - WATCHOS_SDK=watchsimulator3.0
   - EXAMPLE_SCHEME="TenClockExample"
   matrix:
     - DESTINATION="OS=9.3,name=iPhone 6S Plus"     SCHEME="$IOS_FRAMEWORK_SCHEME"     SDK="$IOS_SDK"     RUN_TESTS="NO" BUILD_EXAMPLE="YES" POD_LINT="NO"
