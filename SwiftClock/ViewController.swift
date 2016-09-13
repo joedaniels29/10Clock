@@ -33,7 +33,7 @@ class ViewController: UIViewController, ClockDelegate {
             
         }
         self.c = nil
-        c = Clock(frame:CGRectMake(15,0, self.view.frame.width /*/ (CGFloat(arc4random_uniform(4))+1)*/, self.view.frame.width))
+        c = Clock(frame:CGRectMake(15,0, self.view.frame.width , self.view.frame.width))
         c!.delegate = self
         self.view.addSubview(c!)
     }
