@@ -29,7 +29,10 @@ public class TenClock : UIControl{
     
     public var delegate:TenClockDelegate?
     //overall inset. Controls all sizes.
-    @IBInspectable var insetAmount: CGFloat = 60
+    @IBInspectable var insetAmount: CGFloat = 40
+    var internalShift: CGFloat = 5;
+    var pathWidth:CGFloat = 44
+    
     var timeStepSize: CGFloat = 5
     let gradientLayer = CAGradientLayer()
     let trackLayer = CAShapeLayer()
@@ -84,8 +87,6 @@ public class TenClock : UIControl{
             }
         }
     }
-    var internalShift: CGFloat = 5;
-    var pathWidth:CGFloat = 34
     
     
     var trackWidth:CGFloat {return pathWidth }
@@ -202,7 +203,8 @@ public class TenClock : UIControl{
 
     }
     func updateGradientLayer() {
-        gradientLayer.colors = [UIColor ( red: 0.7011, green: 0.0, blue: 1.0, alpha: 1.0 ).CGColor, UIColor ( red: 0.9992, green: 0.0, blue: 0.5578, alpha: 1.0 ).CGColor]
+        
+        gradientLayer.colors = [tintColor.CGColor, tintColor.modified(withAdditionalHue: -0.05, additionalSaturation: 0.1, additionalBrightness: 0.2).CGColor]
         gradientLayer.mask = overallPathLayer
         gradientLayer.startPoint = CGPoint(x:0,y:0)
     }
@@ -368,17 +370,17 @@ public class TenClock : UIControl{
     override public init(frame: CGRect) {
         super.init(frame:frame)
 //        self.addConstraint(NSLayoutConstraint(item: self, attribute: .Width, relatedBy: .Equal, toItem: self	, attribute: .Height, multiplier: 1, constant: 0))
-        tintColor = UIColor ( red: 0.755, green: 0.0, blue: 1.0, alpha: 1.0 )
-        backgroundColor = UIColor ( red: 0.1149, green: 0.115, blue: 0.1149, alpha: 1.0 )
+       // tintColor = UIColor ( red: 0.755, green: 0.0, blue: 1.0, alpha: 1.0 )
+        backgroundColor = UIColor ( red: 0.1149, green: 0.115, blue: 0.1149, alpha: 0.0 )
         createSublayers()
     }
     
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.addConstraint(NSLayoutConstraint(item: self, attribute: .Width, relatedBy: .Equal, toItem: self	, attribute: .Height, multiplier: 1, constant: 0))
-        tintColor = UIColor ( red: 0.755, green: 0.0, blue: 1.0, alpha: 1.0 )
-        backgroundColor = UIColor ( red: 0.1149, green: 0.115, blue: 0.1149, alpha: 1.0 )
+        
+        //tintColor = UIColor ( red: 0.755, green: 0.0, blue: 1.0, alpha: 1.0 )
+        backgroundColor = UIColor ( red: 0.1149, green: 0.115, blue: 0.1149, alpha: 0.0 )
         createSublayers()
     }
     
