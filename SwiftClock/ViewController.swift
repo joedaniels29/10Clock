@@ -8,18 +8,95 @@
 
 import UIKit
 import TenClock
-class ViewController: UIViewController, ClockDelegate {
-    func timesChanged(clock:Clock, startDate:NSDate,  endDate:NSDate  ) -> (){
+class TenClockCell : UITableViewCell{
+    
+    @IBOutlet weak var clock: TenClock!
+    @IBOutlet weak var endTime: UILabel!
+    @IBOutlet weak var beginTime: UILabel!
+    static func estHeight() -> CGFloat{
+        return 200
+    }
+}
+class TenClockCell : UITableViewCell{
+    
+    @IBOutlet weak var clock: TenClock!
+    @IBOutlet weak var endTime: UILabel!
+    @IBOutlet weak var beginTime: UILabel!
+    static func estHeight() -> CGFloat{
+        return 200
+    }
+}
+class TenClockCell : UITableViewCell{
+    
+    @IBOutlet weak var clock: TenClock!
+    @IBOutlet weak var endTime: UILabel!
+    @IBOutlet weak var beginTime: UILabel!
+    static func estHeight() -> CGFloat{
+        return 200
+    }
+}
+
+class TenClockCell : UITableViewCell{
+    
+    @IBOutlet weak var clock: TenClock!
+    @IBOutlet weak var endTime: UILabel!
+    @IBOutlet weak var beginTime: UILabel!
+    static func estHeight() -> CGFloat{
+        return 200
+    }
+}
+
+class ViewController: UITableViewController, TenClockDelegate {
+    
+    weak var tenClockCell:TenClockCell?
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return classForIndexPath(indexPath).estHeight()
+    }
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    func classForIndexPath(indexPath: NSIndexPath) -> AnyClass {
+        switch indexPath.row{
+        case 0: return TenClockCell.self
+        default: fatalError()
+        }
+    }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(classForIndexPath(indexPath)),
+                                                               forIndexPath: indexPath)
+        switch cell{
+        case let cell as TenClockCell:
+            cell.clock.delegate = self
+        		self.tenClockCell = cell
+        default:fatalError()
+        }
+        return cell
+    }
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    lazy var dateFormatter: NSDateFormatter = {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        return dateFormatter
+    }()
+    func timesChanged(clock:TenClock, startDate:NSDate,  endDate:NSDate  ) -> (){
         print("start at: \(startDate), end at: \(endDate)")
+		self.tenClockCell?.beginTime.text = dateFormatter.stringFromDate(startDate)
+        self.tenClockCell?.endTime.text = dateFormatter.stringFromDate(endDate)
+        
+    
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
     override func viewWillAppear(animated: Bool) {
         refresh()
     }
-    var c:Clock?
+    var c:TenClock?
 
 
 
@@ -32,10 +109,8 @@ class ViewController: UIViewController, ClockDelegate {
             c.removeFromSuperview()
             
         }
-        self.c = nil
-        c = Clock(frame:CGRectMake(15,0, self.view.frame.width , self.view.frame.width))
-        c!.delegate = self
-        self.view.addSubview(c!)
+        
+        
     }
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         refresh()

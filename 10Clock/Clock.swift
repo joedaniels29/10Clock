@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
-@objc public  protocol ClockDelegate {
-    func timesChanged(clock:Clock, startDate:NSDate,  endDate:NSDate  ) -> ()
+
+@objc public  protocol TenClockDelegate {
+    func timesChanged(clock:TenClock, startDate:NSDate,  endDate:NSDate  ) -> ()
     
 }
 func medStepFunction(val: CGFloat, stepSize:CGFloat) -> CGFloat{
@@ -21,15 +22,14 @@ func medStepFunction(val: CGFloat, stepSize:CGFloat) -> CGFloat{
     return CGFloat(rest > dStepSize / 2 ? dStepSize * (nsf + 1) : dStepSize * nsf)
 
 }
-func angleToTime(input: CGFloat) -> CGFloat{
-    return CGFloat((Double(input) - M_PI_2)/(2 * M_PI) * 12*60)
-}
+
 //XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
-public class Clock : UIControl{
+//@IBDesignable
+public class TenClock : UIControl{
     
-    public var delegate:ClockDelegate?
+    public var delegate:TenClockDelegate?
     //overall inset. Controls all sizes.
-    var insetAmount: CGFloat = 60
+    @IBInspectable var insetAmount: CGFloat = 60
     var timeStepSize: CGFloat = 5
     let gradientLayer = CAGradientLayer()
     let trackLayer = CAShapeLayer()
@@ -101,33 +101,20 @@ public class Clock : UIControl{
     var tailPoint: CGPoint{
         return proj(tailAngle)
     }
-    var headVal: CGFloat{
-        return medStepFunction(angleToTime(headAngle), stepSize: timeStepSize)
-    }
-    var tailVal: CGFloat{
-        return medStepFunction(angleToTime(tailAngle), stepSize: timeStepSize)
-    }
-    lazy internal var calendar = NSCalendar(identifier:NSCalendarIdentifierGregorian)
+    
+    lazy internal var calendar = NSCalendar(identifier:NSCalendarIdentifierGregorian)!
     func toDate(val:CGFloat)-> NSDate {
         let comps = NSDateComponents()
         comps.minute = Int(val)
-        return calendar!.dateByAddingComponents(comps, toDate: NSDate().startOfDay, options: [])!
+        return calendar.dateByAddingComponents(comps, toDate: NSDate().startOfDay, options: .init(rawValue:0))!
     }
     var startDate: NSDate{
-        get{return toDate(headVal) }
-        set{
-            let comps = calendar!.components([.Hour, .Minute], fromDate: startDate)
-            let minSinceMid = comps.hour * 60 + comps.minute
-            _ = minSinceMid
-            }
+        get{return angleToTime(headAngle) }
+        set{ headAngle = timeToAngle(newValue) }
     }
     var endDate: NSDate{
-        get{return toDate(tailVal) }
-        set{
-            let comps = calendar!.components([.Hour, .Minute], fromDate: startDate)
-            let minSinceMid = comps.hour * 60 + comps.minute
-            _ = minSinceMid
-        }
+        get{return angleToTime(tailAngle) }
+        set{ tailAngle = timeToAngle(newValue) }
     }
 
     var internalRadius:CGFloat {
@@ -162,6 +149,27 @@ public class Clock : UIControl{
     }
 
     
+    // input a date, output: 0 to 4pi
+    func timeToAngle(date: NSDate) -> Angle{
+        let units : NSCalendarUnit = [.Hour, .Minute]
+        let components = self.calendar.components(units, fromDate: date)
+        let min = Double(  60 * components.hour + components.minute )
+        
+        return medStepFunction(CGFloat(M_PI_2 - ( min / (12 * 60)) * 2 * M_PI), stepSize: CGFloat( 2 * M_PI / (12 * 60 / 5)))
+    }
+    
+    // input an angle, output: 0 to 4pi
+    func angleToTime(angle: Angle) -> NSDate{
+        let dAngle = Double(angle)
+        let min = CGFloat(((M_PI_2 - dAngle) / (2 * M_PI)) * (12 * 60))
+        let startOfToday = NSCalendar.currentCalendar().startOfDayForDate(NSDate())
+        
+        return self.calendar.dateByAddingUnit(.Minute, value: Int(medStepFunction(min, stepSize: 5/* minute steps*/)), toDate: startOfToday, options: .init(rawValue:0))!
+    }
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        update()
+    }
     func update() {
         let mm = min(self.layer.bounds.size.height, self.layer.bounds.size.width)
         CATransaction.begin()
@@ -241,7 +249,6 @@ public class Clock : UIControl{
         return l
     }
     func updateHeadTailLayers() {
-//        let lls = [headLayer, tailLayer, topHeadLayer, topTailLayer]
         let size = CGSize(width: 2 * buttonRadius, height: 2 * buttonRadius)
         let iSize = CGSize(width: 2 * iButtonRadius, height: 2 * iButtonRadius)
         let circle = UIBezierPath(ovalInRect: CGRect(origin: CGPoint(x: 0, y:0), size: size)).CGPath
@@ -360,7 +367,7 @@ public class Clock : UIControl{
     }
     override public init(frame: CGRect) {
         super.init(frame:frame)
-        self.addConstraint(NSLayoutConstraint(item: self, attribute: .Width, relatedBy: .Equal, toItem: self	, attribute: .Height, multiplier: 1, constant: 0))
+//        self.addConstraint(NSLayoutConstraint(item: self, attribute: .Width, relatedBy: .Equal, toItem: self	, attribute: .Height, multiplier: 1, constant: 0))
         tintColor = UIColor ( red: 0.755, green: 0.0, blue: 1.0, alpha: 1.0 )
         backgroundColor = UIColor ( red: 0.1149, green: 0.115, blue: 0.1149, alpha: 1.0 )
         createSublayers()
