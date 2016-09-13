@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Sbs-3t-FN6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Sbs-3t-FN6">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="78" id="zsX-bG-4Kc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TenClockSample.ColorCell" rowHeight="78" id="zsX-bG-4Kc" customClass="ColorCell" customModule="TenClockSample" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zsX-bG-4Kc" id="OSd-2j-ZM5">
@@ -58,7 +58,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="78" id="Vqx-cl-DYE">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TenClockSample.BackgroundCell" rowHeight="78" id="Vqx-cl-DYE" customClass="GradientCell" customModule="TenClockSample" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="106" width="375" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vqx-cl-DYE" id="3kQ-8k-1ek">
@@ -98,7 +98,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="78" id="QDT-ZE-yHd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TenClockSample.GradientCell" rowHeight="78" id="QDT-ZE-yHd" customClass="GradientCell" customModule="TenClockSample" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="184" width="375" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QDT-ZE-yHd" id="Et4-TL-NrE">
@@ -138,34 +138,34 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TenClockSample.TenClockCell" rowHeight="350" id="F15-ty-Npy" customClass="TenClockCell" customModule="TenClockSample" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="262" width="375" height="350"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TenClockSample.TenClockCell" rowHeight="289" id="F15-ty-Npy" customClass="TenClockCell" customModule="TenClockSample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="262" width="375" height="289"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F15-ty-Npy" id="2mA-xb-Zmp">
-                                    <frame key="frameInset" width="375" height="349"/>
+                                    <frame key="frameInset" width="375" height="288"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="x0S-ZP-DFf">
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="x0S-ZP-DFf">
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WSq-aH-c2W">
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Yob-gD-buO">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yob-gD-buO">
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="751" text="10Clock:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHO-gx-fBr">
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Fun fact: 10Clock is a terrible name because llvm modules cant begin with a number. Thats why you `import TenClock`" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t01-7C-7js">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Fun fact: 10Clock is a terrible name because llvm modules cant begin with a number. Thats why you `import TenClock`" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t01-7C-7js">
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="bQW-JK-d5u">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="bQW-JK-d5u">
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IFe-54-ZXn">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IFe-54-ZXn">
                                                                     <frame key="frameInset" width="116" height="52"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" text="Begin Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2G-bi-8J7">
@@ -188,7 +188,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vhi-xM-jUV">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vhi-xM-jUV">
                                                                     <frame key="frameInset" minX="244" width="116" height="52"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" text="End Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6o-He-43C">
@@ -215,21 +215,18 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vE2-qk-oru" customClass="TenClock" customModule="TenClock">
+                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="vE2-qk-oru" customClass="TenClock" customModule="TenClock">
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="vE2-qk-oru" secondAttribute="height" multiplier="1:1" id="TA4-rg-OEF"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="vE2-qk-oru" firstAttribute="leading" secondItem="x0S-ZP-DFf" secondAttribute="leading" id="ohL-Az-kZA"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="x0S-ZP-DFf" secondAttribute="bottom" id="6Uz-VG-IGX"/>
                                         <constraint firstItem="x0S-ZP-DFf" firstAttribute="top" secondItem="2mA-xb-Zmp" secondAttribute="top" id="8QG-eu-Uca"/>
+                                        <constraint firstAttribute="bottom" secondItem="x0S-ZP-DFf" secondAttribute="bottom" id="S7S-0I-90L"/>
                                         <constraint firstItem="x0S-ZP-DFf" firstAttribute="leading" secondItem="2mA-xb-Zmp" secondAttribute="leadingMargin" id="fPi-L3-uxd"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="x0S-ZP-DFf" secondAttribute="trailingMargin" id="sK6-WO-19w"/>
                                     </constraints>
@@ -249,7 +246,8 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYl-dj-hXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="536.5" y="54.5"/>
+            <point key="canvasLocation" x="535.20000000000005" y="54.422788605697157"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.10891933739185333" green="0.7904278039932251" blue="0.015522290952503681" alpha="1" colorSpace="calibratedRGB"/>
 </document>

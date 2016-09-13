@@ -17,7 +17,7 @@ class TenClockCell : UITableViewCell{
         return 200
     }
 }
-class TenClockCell : UITableViewCell{
+class GradientCell : UITableViewCell{
     
     @IBOutlet weak var clock: TenClock!
     @IBOutlet weak var endTime: UILabel!
@@ -26,7 +26,7 @@ class TenClockCell : UITableViewCell{
         return 200
     }
 }
-class TenClockCell : UITableViewCell{
+class BackgroundCell : UITableViewCell{
     
     @IBOutlet weak var clock: TenClock!
     @IBOutlet weak var endTime: UILabel!
@@ -36,7 +36,7 @@ class TenClockCell : UITableViewCell{
     }
 }
 
-class TenClockCell : UITableViewCell{
+class ColorCell : UITableViewCell{
     
     @IBOutlet weak var clock: TenClock!
     @IBOutlet weak var endTime: UILabel!
@@ -57,7 +57,10 @@ class ViewController: UITableViewController, TenClockDelegate {
     }
     func classForIndexPath(indexPath: NSIndexPath) -> AnyClass {
         switch indexPath.row{
-        case 0: return TenClockCell.self
+        case 0: return ColorCell.self
+            case 1: return BackgroundCell.self
+            case 2: return GradientCell.self
+            case 3: return TenClockCell.self
         default: fatalError()
         }
     }
@@ -68,12 +71,12 @@ class ViewController: UITableViewController, TenClockDelegate {
         case let cell as TenClockCell:
             cell.clock.delegate = self
         		self.tenClockCell = cell
-        default:fatalError()
+        default: ()
         }
         return cell
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 4
     }
     
     lazy var dateFormatter: NSDateFormatter = {
