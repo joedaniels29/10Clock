@@ -5,10 +5,19 @@
 
 ###Pics:
 
-![Sample Image](/assets/10Clock.png)
+![Sample Image](/assets/computed/10Clock.png)
+![Green Image](/assets/computed/green.png)
 
-I'm Going to be working to support more designs than just this one.
-A great way to contribute would be to add a design!
+## Usage
+
+
+
+
+## Contributing
+
+The goals of the project at this point should be testing for edgecase behavior and expanding customizability.
+
+Please do contribute, open an issue if you have a question. Then  Submit a PR!  :D
 
 
 

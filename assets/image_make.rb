@@ -3,8 +3,8 @@ require 'ERB'
 require 'mini_magick'
 require 'fileutils'
 
-DEFAULT_CARD_HEIGHT=215
-DEFAULT_CARD_WIDTH=400
+DEFAULT_CARD_HEIGHT=500
+DEFAULT_CARD_WIDTH=550
 ICON_WIDTH = 200
 LOGO_WIDTH = ICON_WIDTH * 2
 
@@ -41,7 +41,7 @@ def render(img, output_dir, width, height, dpi=1, fit)
 
 
   # opacify image
-  image.write File.join(output_dir, "#{base img['src']}#{dpi == 1 ? ".png" : "_#{dpi}x.png"}")
+  image.write File.join(output_dir, "#{base img}#{dpi == 1 ? ".png" : "_#{dpi}x.png"}")
 end
 
 HASH = {
@@ -53,5 +53,5 @@ types = HASH
 
 # images
 Dir[IMAGE_ASSET_LOCATION + "/*"].each do |p|
-    render(img, IMAGE_ASSET_OUTPUT_LOCATION, types["clock"][:width], types[type][:height], 1, types[type][:fit] || "")
+    render(p, IMAGE_ASSET_OUTPUT_LOCATION, types[:clock][:width], types[:clock][:height], 1, types[:clock][:fit] || "")
 end
