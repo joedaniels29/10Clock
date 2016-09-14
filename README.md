@@ -3,10 +3,9 @@
 ![MIT](https://img.shields.io/cocoapods/v/10Clock.svg?style=flat)
 [![Build Status](https://travis-ci.org/joedaniels29/10Clock.svg?branch=master)](https://travis-ci.org/joedaniels29/10Clock)
 
-###Pics:
-
-![Sample Image](/assets/computed/10Clock.png)
-![Green Image](/assets/computed/green.png)
+Something Dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![](/assets/computed/10Clock.png)  |  ![](/assets/computed/green.png)
 
 ## Usage
 
