@@ -10,7 +10,29 @@
 
 ## Usage
 
+The control itsself is `TenClock`. Add that to your view hierarchy, and constrain it to be square (thats kindof important).
 
+to set times, do:
+
+```swift
+self.tenClock.startDate = NSDate()
+self.tenClock.endDate = NSDate. //sometime later
+```
+
+make the date today.
+then, to get updates for when the date changes, adopt the protocol `TenClockDelegate` and observe:
+
+```swift
+import TenClock
+class ViewController: UIViewController, TenClockDelegate {
+    func timesChanged(clock:TenClock, startDate:NSDate,  endDate:NSDate  ) -> (){
+        print("start at: \(startDate), end at: \(endDate)")
+        self.tenClockCell?.beginTime.text = dateFormatter.stringFromDate(startDate)
+        self.tenClockCell?.endTime.text = dateFormatter.stringFromDate(endDate)
+
+
+    }
+```
 
 
 ## Contributing
