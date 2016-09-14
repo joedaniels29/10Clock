@@ -27,11 +27,10 @@ import TenClock
 class ViewController: UIViewController, TenClockDelegate {
     func timesChanged(clock:TenClock, startDate:NSDate,  endDate:NSDate  ) -> (){
         print("start at: \(startDate), end at: \(endDate)")
-        self.tenClockCell?.beginTime.text = dateFormatter.stringFromDate(startDate)
-        self.tenClockCell?.endTime.text = dateFormatter.stringFromDate(endDate)
-
-
+        self.beginTimeLabel.text = dateFormatter.stringFromDate(startDate)
+        self.endTimeLabel.text = dateFormatter.stringFromDate(endDate)
     }
+    // ...
 ```
 
 
