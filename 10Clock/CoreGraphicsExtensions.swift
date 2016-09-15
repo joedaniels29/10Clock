@@ -29,7 +29,9 @@ extension UIColor {
     }
 }
 
-
+extension Angle{
+    var reverse:Angle{return CGFloat(2 * M_PI) - self}
+}
 extension FloatingPointType{
     var isBad:Bool{ return isNaN || isInfinite }
     var checked:Self{
@@ -110,6 +112,8 @@ extension CGVector{
     func dot(vec2:CGVector) -> CGFloat { return (dx * vec2.dx + dy * vec2.dy).checked}
     func add(vec2:CGVector) -> CGVector { return CGVector(dx:dx + vec2.dx , dy: dy + vec2.dy).checked}
     func cross(vec2:CGVector) -> CGFloat { return (dx * vec2.dy - dy * vec2.dx).checked}
+    func scale(c:CGFloat) -> CGVector { return CGVector(dx:dx * c , dy: dy * c).checked}
+    
     
     init( from:CGPoint, to:CGPoint){
         guard !from.hasNaN && !to.hasNaN  else {
@@ -126,8 +130,18 @@ extension CGVector{
         dy = sin(compAngle.checked)
         _ = self.checked
     }
+    var theta:Angle{
+        return atan2(dy, dx)}
+    
     static func theta(vec1:CGVector, vec2:CGVector) -> Angle{
-        return acos(vec1.normalized.dot(vec2.normalized)).checked
+		var i = vec1.normalized.dot(vec2.normalized)
+        if (i > 1) {
+    		i = 1;
+        }
+        if (i < -1){
+         	i = -1;
+        }
+        return acos(i).checked
     }
     static func signedTheta(vec1:CGVector, vec2:CGVector) -> Angle{
         

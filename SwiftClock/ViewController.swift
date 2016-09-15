@@ -85,7 +85,7 @@ class ViewController: UITableViewController, TenClockDelegate {
         return dateFormatter
     }()
     func timesChanged(clock:TenClock, startDate:NSDate,  endDate:NSDate  ) -> (){
-        print("start at: \(startDate), end at: \(endDate)")
+//        print("start at: \(startDate), end at: \(endDate)")
 		self.tenClockCell?.beginTime.text = dateFormatter.stringFromDate(startDate)
         self.tenClockCell?.endTime.text = dateFormatter.stringFromDate(endDate)
         

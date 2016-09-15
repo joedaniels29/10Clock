@@ -69,9 +69,10 @@ public class TenClock : UIControl{
     let fourPi =  CGFloat(4 * M_PI)
     var headAngle: CGFloat = 0{
         didSet{
-            if (headAngle - tailAngle > fourPi){
+            if (headAngle > fourPi  +  CGFloat(M_PI_2)){
                 headAngle -= fourPi
-            } else if (headAngle - tailAngle <  0 ){
+            }
+            if (headAngle <  CGFloat(M_PI_2) ){
                 headAngle += fourPi
             }
         }
@@ -79,12 +80,12 @@ public class TenClock : UIControl{
 
     var tailAngle: CGFloat = 0.7 * CGFloat(M_PI) {
         didSet{
-            if (tailAngle > fourPi){
-            		tailAngle -= fourPi
+            if (tailAngle  > headAngle + fourPi){
+                tailAngle -= fourPi
+            } else if (tailAngle  < headAngle ){
+                tailAngle += fourPi
             }
-            if (tailAngle <  0 ){
-             tailAngle += fourPi
-            }
+            
         }
     }
     
@@ -97,6 +98,8 @@ public class TenClock : UIControl{
     var titleColor = UIColor.lightGrayColor()
     var titleGradientMask = false
     
+    //disable scrol on closest superview for duration of a valid touch.
+    var disableSuperviewScroll = false
     
     var headBackgroundColor = UIColor.whiteColor()
     var tailBackgroundColor = UIColor.whiteColor()
@@ -248,12 +251,12 @@ public class TenClock : UIControl{
         let arcCenter = pathLayer.center
         pathLayer.fillColor = UIColor.clearColor().CGColor
         pathLayer.lineWidth = pathWidth
-//        print("start = \(headAngle), end = \(tailAngle)")
+        print("start = \(headAngle / CGFloat(M_PI)), end = \(tailAngle / CGFloat(M_PI))")
         pathLayer.path = UIBezierPath(
             arcCenter: arcCenter,
             radius: trackRadius,
-            startAngle: ( 2 * CGFloat(M_PI)) -  headAngle,
-            endAngle: ( 2 * CGFloat(M_PI)) -  (abs(headAngle - tailAngle) >= twoPi ? tailAngle - twoPi : tailAngle),
+            startAngle: ( twoPi ) -  headAngle,
+            endAngle: ( twoPi  ) -  ((tailAngle - headAngle) >= twoPi ? tailAngle - twoPi : tailAngle),
             clockwise: true).CGPath
     }
     
@@ -335,9 +338,9 @@ public class TenClock : UIControl{
         titleTextLayer.foregroundColor = (centerTextColor ?? tintColor).CGColor
         titleTextLayer.contentsScale = UIScreen.mainScreen().scale
         titleTextLayer.font = cgFont
-        var computedTailAngle = tailAngle + (headAngle > tailAngle ? twoPi : 0)
-        computedTailAngle +=  (headAngle > computedTailAngle ? twoPi : 0)
-        let fiveMinIncrements = Int( (abs(tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/)
+        var computedTailAngle = tailAngle //+ (headAngle > tailAngle ? twoPi : 0)
+        //computedTailAngle +=  (headAngle > computedTailAngle ? twoPi : 0)
+        let fiveMinIncrements = Int( ((tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/)
         titleTextLayer.string = "\(fiveMinIncrements / 12)hr \((fiveMinIncrements % 12) * 5)min"
         titleTextLayer.position = gradientLayer.center
         
@@ -438,14 +441,22 @@ public class TenClock : UIControl{
     override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //        touches.forEach { (touch) in
         let touch = touches.first!
-        guard let layer = self.overallPathLayer.hitTest( touch.locationInView(self) ) else { return }
+        let pointOfTouch = touch.locationInView(self)
+        guard let layer = self.overallPathLayer.hitTest( pointOfTouch ) else { return }
+//         superview:UIView
+//        while let superview = touch.gestureRecognizers{
+//            guard let superview = superview as? UIPanGestureRecognizer else {  continue }
+//            superview.scrollEnabled = false
+//            break
+//        }
         
-        let pp: (() -> Angle, Angle->()) -> (CGPoint) -> () = { g, s in
+        var prev = pointOfTouch
+        let pp: ((CGPoint) -> Angle, Angle->()) -> (CGPoint) -> () = { g, s in
             return { p in
                 let c = self.layer.center
                 let computedP = CGPointMake(p.x, self.layer.bounds.height - p.y)
                 let v1 = CGVector(from: c, to: computedP)
-                let v2 = CGVector(angle:g())
+                let v2 = CGVector(angle:g( p ))
                 
                 s(clockDescretization(CGVector.signedTheta(v1, vec2: v2)))
                 self.update()
@@ -455,20 +466,34 @@ public class TenClock : UIControl{
         
         switch(layer){
         case headLayer:
-            pointMover = pp({self.headAngle}, {self.headAngle += $0})
+            pointMover = pp({ _ in self.headAngle}, {self.headAngle += $0; self.tailAngle += 0})
         case tailLayer:
-            pointMover = pp({self.tailAngle}, {self.tailAngle += $0})
+            pointMover = pp({_ in self.tailAngle}, {self.headAngle += 0;self.tailAngle += $0})
         case pathLayer:
-            pointMover = pp({(self.tailAngle + self.headAngle) / 2}, {self.tailAngle += $0; self.headAngle += $0})
+            pointMover = pp({ pt in
+                let x = CGVector(from: self.bounds.center, to:CGPointMake(prev.x, self.layer.bounds.height - prev.y)).theta;
+                prev = pt;
+                return x }, {self.headAngle += $0; self.tailAngle += $0 })
         default: break
         }
         
         
         
     }
-    
+    override public  func touchesCancelled(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        while var superview = self.superview{
+//            guard let superview = superview as? UIScrollView else {  continue }
+//            superview.scrollEnabled = true
+//            break
+//        }
+    }
     override public func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         pointMover = nil
+//        while var superview = self.superview{
+//            guard let superview = superview as? UIScrollView else {  continue }
+//            superview.scrollEnabled = true
+//            break
+//        }
 //        do something
 //        valueChanged = false
     }
