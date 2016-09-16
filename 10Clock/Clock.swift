@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 @objc public  protocol TenClockDelegate {
     func timesChanged(clock:TenClock, startDate:NSDate,  endDate:NSDate  ) -> ()
 
@@ -109,7 +108,16 @@ public class TenClock : UIControl{
 
     var minorTicksEnabled:Bool = true
     var majorTicksEnabled:Bool = true
-
+    var disabled:Bool = true {
+        didSet{
+        		update()
+        }
+    }
+    
+    
+    func disabledFormattedColor(color:UIColor) -> UIColor{
+        return disabled ? color.greyscale : color
+    }
 
 
 
@@ -201,7 +209,7 @@ public class TenClock : UIControl{
         CATransaction.begin()
         self.layer.size = CGSize(width: mm, height: mm)
 
-        strokeColor = tintColor
+        strokeColor = disabledFormattedColor(tintColor)
         overallPathLayer.occupation = layer.occupation
         gradientLayer.occupation = layer.occupation
 
@@ -229,7 +237,11 @@ public class TenClock : UIControl{
     }
     func updateGradientLayer() {
 
-        gradientLayer.colors = [tintColor.CGColor, tintColor.modified(withAdditionalHue: -0.08, additionalSaturation: 0.15, additionalBrightness: 0.2).CGColor]
+        gradientLayer.colors =
+            [tintColor,
+                tintColor.modified(withAdditionalHue: -0.08, additionalSaturation: 0.15, additionalBrightness: 0.2)]
+                .map(disabledFormattedColor)
+                .map{$0.CGColor}
         gradientLayer.mask = overallPathLayer
         gradientLayer.startPoint = CGPoint(x:0,y:0)
     }
@@ -267,7 +279,7 @@ public class TenClock : UIControl{
         let l = CATextLayer()
         l.bounds.size = CGSize(width: 30, height: 15)
         l.fontSize = f.pointSize
-        l.foregroundColor =  (color ?? tintColor).CGColor
+        l.foregroundColor =  disabledFormattedColor(color ?? tintColor).CGColor
         l.alignmentMode = kCAAlignmentCenter
         l.contentsScale = UIScreen.mainScreen().scale
         l.font = cgFont
@@ -294,12 +306,12 @@ public class TenClock : UIControl{
         topHeadLayer.path = iCircle
         topTailLayer.size = iSize
         topHeadLayer.size = iSize
-        topHeadLayer.fillColor = headBackgroundColor.CGColor
-        topTailLayer.fillColor = tailBackgroundColor.CGColor
+        topHeadLayer.fillColor = disabledFormattedColor(headBackgroundColor).CGColor
+        topTailLayer.fillColor = disabledFormattedColor(tailBackgroundColor).CGColor
         topHeadLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
         topTailLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
-        let stText = tlabel("Sleep", color: headTextColor)
-        let endText = tlabel("Wake",color: tailTextColor)
+        let stText = tlabel("Sleep", color: disabledFormattedColor(headTextColor))
+        let endText = tlabel("Wake",color: disabledFormattedColor(tailTextColor))
         stText.position = topHeadLayer.center
         endText.position = topTailLayer.center
         topHeadLayer.addSublayer(stText)
@@ -323,7 +335,7 @@ public class TenClock : UIControl{
             //            l.foregroundColor
             l.font = cgFont
             l.string = "\(i)"
-            l.foregroundColor = (numeralsColor ?? tintColor).CGColor
+            l.foregroundColor = disabledFormattedColor(numeralsColor ?? tintColor).CGColor
             l.position = CGVector(from:origin, to:startPos).rotate( CGFloat(Double(i) * step)).add(origin.vector).point.checked
             numeralsLayer.addSublayer(l)
         }
@@ -335,7 +347,7 @@ public class TenClock : UIControl{
         titleTextLayer.bounds.size = CGSize( width: titleTextInset.size.width, height: 50)
         titleTextLayer.fontSize = f.pointSize
         titleTextLayer.alignmentMode = kCAAlignmentCenter
-        titleTextLayer.foregroundColor = (centerTextColor ?? tintColor).CGColor
+        titleTextLayer.foregroundColor = disabledFormattedColor(centerTextColor ?? tintColor).CGColor
         titleTextLayer.contentsScale = UIScreen.mainScreen().scale
         titleTextLayer.font = cgFont
         //var computedTailAngle = tailAngle //+ (headAngle > tailAngle ? twoPi : 0)
@@ -358,7 +370,7 @@ public class TenClock : UIControl{
     func updateWatchFaceTicks() {
         repLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
         let t = tick()
-        t.strokeColor = (minorTicksColor ?? tintColor).CGColor
+        t.strokeColor = disabledFormattedColor(minorTicksColor ?? tintColor).CGColor
         t.position = CGPoint(x: repLayer.bounds.midX, y: 10)
         repLayer.addSublayer(t)
         repLayer.position = self.bounds.center
@@ -366,7 +378,7 @@ public class TenClock : UIControl{
 
         repLayer2.sublayers?.forEach({$0.removeFromSuperlayer()})
         let t2 = tick()
-        t2.strokeColor = (majorTicksColor ?? tintColor).CGColor
+        t2.strokeColor = disabledFormattedColor(majorTicksColor ?? tintColor).CGColor
         t2.lineWidth = 2
         t2.position = CGPoint(x: repLayer2.bounds.midX, y: 10)
         repLayer2.addSublayer(t2)
@@ -390,7 +402,7 @@ public class TenClock : UIControl{
         gradientLayer.addSublayer(topHeadLayer)
         gradientLayer.addSublayer(topTailLayer)
         update()
-        strokeColor = tintColor
+        strokeColor = disabledFormattedColor(tintColor)
     }
     override public init(frame: CGRect) {
         super.init(frame:frame)
@@ -439,6 +451,11 @@ public class TenClock : UIControl{
 
     var pointMover:((CGPoint) ->())?
     override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        guard !disabled  else {
+        		pointMover = nil
+            return
+        }
+        
         //        touches.forEach { (touch) in
         let touch = touches.first!
         let pointOfTouch = touch.locationInView(self)

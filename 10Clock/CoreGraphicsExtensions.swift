@@ -10,7 +10,15 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    
+    var greyscale: UIColor{
+        var (hue, saturation, brightness, alpha) = (CGFloat(0.0), CGFloat(0.0), CGFloat(0.0), CGFloat(0.0))
+
+        if self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
+            return  UIColor(hue: hue, saturation: 0, brightness: brightness, alpha: alpha)
+        }else {
+            return UIColor.grayColor()
+        }
+    }
     func modified(withAdditionalHue hue: CGFloat, additionalSaturation: CGFloat, additionalBrightness: CGFloat) -> UIColor {
         
         var currentHue: CGFloat = 0.0
