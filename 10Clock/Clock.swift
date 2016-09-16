@@ -108,7 +108,7 @@ public class TenClock : UIControl{
 
     var minorTicksEnabled:Bool = true
     var majorTicksEnabled:Bool = true
-    var disabled:Bool = true {
+    @objc var disabled:Bool = true {
         didSet{
         		update()
         }
