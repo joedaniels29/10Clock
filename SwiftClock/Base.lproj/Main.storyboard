@@ -12,244 +12,301 @@
         <scene sceneID="P9S-cT-X7N">
             <objects>
                 <tableViewController id="Sbs-3t-FN6" customClass="ViewController" customModule="TenClockSample" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="28" sectionFooterHeight="28" id="L1W-mV-H2c">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="28" sectionFooterHeight="28" id="L1W-mV-H2c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TenClockSample.ColorCell" rowHeight="78" id="zsX-bG-4Kc" customClass="ColorCell" customModule="TenClockSample" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="78"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zsX-bG-4Kc" id="OSd-2j-ZM5">
-                                    <frame key="frameInset" width="375" height="77.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7Yg-xJ-ZRF">
+                        <sections>
+                            <tableViewSection id="L4c-mV-XrL">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TenClockSample.ColorCell" rowHeight="78" id="zsX-bG-4Kc">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zsX-bG-4Kc" id="OSd-2j-ZM5">
+                                            <frame key="frameInset" width="375" height="77.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QDw-aC-Jg7">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7Yg-xJ-ZRF">
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Color Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5M-pX-hio">
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10Clock works in dark and light settings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgY-yA-kyC">
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="y1v-Yi-jo9">
-                                                    <segments>
-                                                        <segment title="blue"/>
-                                                        <segment title="green"/>
-                                                        <segment title="Purple"/>
-                                                    </segments>
-                                                </segmentedControl>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="7Yg-xJ-ZRF" secondAttribute="bottom" id="0rS-GH-ls7"/>
-                                        <constraint firstItem="7Yg-xJ-ZRF" firstAttribute="leading" secondItem="OSd-2j-ZM5" secondAttribute="leadingMargin" id="4CL-2g-7O3"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="7Yg-xJ-ZRF" secondAttribute="trailingMargin" id="Uvw-jB-XVW"/>
-                                        <constraint firstItem="7Yg-xJ-ZRF" firstAttribute="top" secondItem="OSd-2j-ZM5" secondAttribute="top" id="h7I-Lo-ZsG"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TenClockSample.BackgroundCell" rowHeight="78" id="Vqx-cl-DYE" customClass="GradientCell" customModule="TenClockSample" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="106" width="375" height="78"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vqx-cl-DYE" id="3kQ-8k-1ek">
-                                    <frame key="frameInset" width="375" height="77.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nO2-XH-3wV">
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="uJW-Ze-9YN">
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Background Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhh-aJ-L87">
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="10Clock works in dark and light settings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNZ-vF-RrH">
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q1Q-a2-OYh">
-                                                    <segments>
-                                                        <segment title="Dark"/>
-                                                        <segment title="Light"/>
-                                                    </segments>
-                                                </segmentedControl>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="nO2-XH-3wV" firstAttribute="top" secondItem="3kQ-8k-1ek" secondAttribute="top" id="0RN-mZ-y3u"/>
-                                        <constraint firstItem="nO2-XH-3wV" firstAttribute="leading" secondItem="3kQ-8k-1ek" secondAttribute="leadingMargin" id="MhL-ks-wRT"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="nO2-XH-3wV" secondAttribute="trailingMargin" id="iHe-D2-vac"/>
-                                        <constraint firstAttribute="bottom" secondItem="nO2-XH-3wV" secondAttribute="bottom" id="ife-5k-7yQ"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TenClockSample.GradientCell" rowHeight="78" id="QDT-ZE-yHd" customClass="GradientCell" customModule="TenClockSample" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="184" width="375" height="78"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QDT-ZE-yHd" id="Et4-TL-NrE">
-                                    <frame key="frameInset" width="375" height="77.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9rR-bu-Vra">
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hKP-UY-MQq">
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gradient" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3F-78-h8r">
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="10Clock has an optional Gradient " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ien-ab-9wE">
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8Ee-sm-Rft">
-                                                    <segments>
-                                                        <segment title="Linear"/>
-                                                        <segment title="None"/>
-                                                    </segments>
-                                                </segmentedControl>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="9rR-bu-Vra" firstAttribute="leading" secondItem="Et4-TL-NrE" secondAttribute="leadingMargin" id="1CC-sI-bf9"/>
-                                        <constraint firstAttribute="bottom" secondItem="9rR-bu-Vra" secondAttribute="bottom" id="7i0-IL-qh4"/>
-                                        <constraint firstItem="9rR-bu-Vra" firstAttribute="top" secondItem="Et4-TL-NrE" secondAttribute="top" id="TCO-Hv-0i4"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="9rR-bu-Vra" secondAttribute="trailingMargin" id="jb3-Hf-ptz"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TenClockSample.TenClockCell" rowHeight="289" id="F15-ty-Npy" customClass="TenClockCell" customModule="TenClockSample" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="262" width="375" height="289"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="F15-ty-Npy" id="2mA-xb-Zmp">
-                                    <frame key="frameInset" width="375" height="288.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="x0S-ZP-DFf">
-                                            <frame key="frameInset" minX="8" width="359" height="12718"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WSq-aH-c2W">
-                                                    <frame key="frameInset" width="359" height="12343"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yob-gD-buO">
-                                                            <frame key="frameInset" width="359" height="51"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QDw-aC-Jg7">
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="751" ambiguous="YES" text="10Clock:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHO-gx-fBr">
-                                                                    <frame key="frameInset" width="359" height="21"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Color Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5M-pX-hio">
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" text="Fun fact: 10Clock is a terrible name because llvm modules cant begin with a number. Thats why you `import TenClock`" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t01-7C-7js">
-                                                                    <frame key="frameInset" minY="21" width="359" height="31"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10Clock works in dark and light settings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgY-yA-kyC">
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="bQW-JK-d5u">
-                                                            <frame key="frameInset" minY="51" width="359" height="12292"/>
+                                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="y1v-Yi-jo9">
+                                                            <segments>
+                                                                <segment title="blue"/>
+                                                                <segment title="green"/>
+                                                                <segment title="Purple"/>
+                                                            </segments>
+                                                            <connections>
+                                                                <action selector="colorPreviewValueChanged:" destination="Sbs-3t-FN6" eventType="valueChanged" id="32C-rL-Ua5"/>
+                                                            </connections>
+                                                        </segmentedControl>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="7Yg-xJ-ZRF" secondAttribute="bottom" id="0rS-GH-ls7"/>
+                                                <constraint firstItem="7Yg-xJ-ZRF" firstAttribute="leading" secondItem="OSd-2j-ZM5" secondAttribute="leadingMargin" id="4CL-2g-7O3"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7Yg-xJ-ZRF" secondAttribute="trailingMargin" id="Uvw-jB-XVW"/>
+                                                <constraint firstItem="7Yg-xJ-ZRF" firstAttribute="top" secondItem="OSd-2j-ZM5" secondAttribute="top" id="h7I-Lo-ZsG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TenClockSample.BackgroundCell" rowHeight="78" id="Vqx-cl-DYE">
+                                        <rect key="frame" x="0.0" y="78" width="375" height="78"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vqx-cl-DYE" id="3kQ-8k-1ek">
+                                            <frame key="frameInset" width="375" height="77.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nO2-XH-3wV">
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="uJW-Ze-9YN">
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IFe-54-ZXn">
-                                                                    <frame key="frameInset" width="77" height="12292"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Background Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhh-aJ-L87">
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="10Clock works in dark and light settings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNZ-vF-RrH">
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q1Q-a2-OYh">
+                                                            <segments>
+                                                                <segment title="Dark"/>
+                                                                <segment title="Light"/>
+                                                            </segments>
+                                                            <connections>
+                                                                <action selector="backgroundValueChanged:" destination="Sbs-3t-FN6" eventType="valueChanged" id="yW1-2m-12S"/>
+                                                            </connections>
+                                                        </segmentedControl>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nO2-XH-3wV" firstAttribute="top" secondItem="3kQ-8k-1ek" secondAttribute="top" id="0RN-mZ-y3u"/>
+                                                <constraint firstItem="nO2-XH-3wV" firstAttribute="leading" secondItem="3kQ-8k-1ek" secondAttribute="leadingMargin" id="MhL-ks-wRT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nO2-XH-3wV" secondAttribute="trailingMargin" id="iHe-D2-vac"/>
+                                                <constraint firstAttribute="bottom" secondItem="nO2-XH-3wV" secondAttribute="bottom" id="ife-5k-7yQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TenClockSample.ColorCell" rowHeight="78" id="Tvj-Cf-YkM">
+                                        <rect key="frame" x="0.0" y="156" width="375" height="78"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tvj-Cf-YkM" id="EQm-5V-iII">
+                                            <frame key="frameInset" width="375" height="77.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2tU-VY-Gv5">
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Mxq-ZN-mBI">
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Enabled/Disabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhc-1d-56F">
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Rkb-Vx-sfy">
+                                                            <segments>
+                                                                <segment title="Enabled"/>
+                                                                <segment title="Disabled"/>
+                                                            </segments>
+                                                            <connections>
+                                                                <action selector="enabledValueChanged:" destination="Sbs-3t-FN6" eventType="valueChanged" id="v4o-OA-6aB"/>
+                                                            </connections>
+                                                        </segmentedControl>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="2tU-VY-Gv5" secondAttribute="bottom" id="dcx-yC-Y7z"/>
+                                                <constraint firstItem="2tU-VY-Gv5" firstAttribute="leading" secondItem="EQm-5V-iII" secondAttribute="leadingMargin" id="gOv-hS-Q2u"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2tU-VY-Gv5" secondAttribute="trailingMargin" id="ok1-kc-OI2"/>
+                                                <constraint firstItem="2tU-VY-Gv5" firstAttribute="top" secondItem="EQm-5V-iII" secondAttribute="top" id="rgP-nX-D7M"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TenClockSample.GradientCell" rowHeight="78" id="QDT-ZE-yHd">
+                                        <rect key="frame" x="0.0" y="234" width="375" height="78"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QDT-ZE-yHd" id="Et4-TL-NrE">
+                                            <frame key="frameInset" width="375" height="77.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9rR-bu-Vra">
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hKP-UY-MQq">
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gradient" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3F-78-h8r">
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="10Clock has an optional Gradient " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ien-ab-9wE">
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8Ee-sm-Rft">
+                                                            <segments>
+                                                                <segment title="Linear"/>
+                                                                <segment title="None"/>
+                                                            </segments>
+                                                            <connections>
+                                                                <action selector="gradientValueChanged:" destination="Sbs-3t-FN6" eventType="valueChanged" id="erR-sm-Ece"/>
+                                                            </connections>
+                                                        </segmentedControl>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9rR-bu-Vra" firstAttribute="leading" secondItem="Et4-TL-NrE" secondAttribute="leadingMargin" id="1CC-sI-bf9"/>
+                                                <constraint firstAttribute="bottom" secondItem="9rR-bu-Vra" secondAttribute="bottom" id="7i0-IL-qh4"/>
+                                                <constraint firstItem="9rR-bu-Vra" firstAttribute="top" secondItem="Et4-TL-NrE" secondAttribute="top" id="TCO-Hv-0i4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9rR-bu-Vra" secondAttribute="trailingMargin" id="jb3-Hf-ptz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TenClockSample.TenClockCell" rowHeight="550" id="F15-ty-Npy">
+                                        <rect key="frame" x="0.0" y="312" width="375" height="550"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F15-ty-Npy" id="2mA-xb-Zmp">
+                                            <frame key="frameInset" width="375" height="549.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="x0S-ZP-DFf">
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WSq-aH-c2W">
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yob-gD-buO">
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" text="Begin Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2G-bi-8J7">
-                                                                            <frame key="frameInset" width="77" height="18"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="18" id="L5n-qT-IS9"/>
-                                                                            </constraints>
-                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" text="10Clock:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHO-gx-fBr">
+                                                                            <frame key="frameInset" width="359" height="92"/>
+                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" text="10:00 am" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXj-Q7-FoJ">
-                                                                            <frame key="frameInset" minY="18" width="77" height="12274"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="34" id="u8X-8j-J1h"/>
-                                                                            </constraints>
-                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" text="Fun fact: 10Clock is a terrible name because llvm modules cant begin with a number. Thats why you `import TenClock`" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t01-7C-7js">
+                                                                            <frame key="frameInset" minY="92" width="359" height="31"/>
+                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vhi-xM-jUV">
-                                                                    <frame key="frameInset" minX="244" width="116" height="12292"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bQW-JK-d5u">
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" text="End Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6o-He-43C">
-                                                                            <frame key="frameInset" width="116" height="18"/>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IFe-54-ZXn">
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Begin Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2G-bi-8J7">
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="18" id="L5n-qT-IS9"/>
+                                                                                    </constraints>
+                                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="10:00 am" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXj-Q7-FoJ">
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="34" id="u8X-8j-J1h"/>
+                                                                                    </constraints>
+                                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vhi-xM-jUV">
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="End Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6o-He-43C">
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="18" id="Eun-PQ-nVO"/>
+                                                                                    </constraints>
+                                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="10:00 am" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKd-96-KPK">
+                                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="18" id="Eun-PQ-nVO"/>
+                                                                                <constraint firstItem="hKd-96-KPK" firstAttribute="leading" secondItem="Vhi-xM-jUV" secondAttribute="leading" id="vBw-XS-x8Q"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" text="10:00 am" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKd-96-KPK">
-                                                                            <frame key="frameInset" minY="18" width="116" height="12274"/>
-                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
+                                                                        </stackView>
                                                                     </subviews>
-                                                                    <constraints>
-                                                                        <constraint firstItem="hKd-96-KPK" firstAttribute="leading" secondItem="Vhi-xM-jUV" secondAttribute="leading" id="vBw-XS-x8Q"/>
-                                                                    </constraints>
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
+                                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="vE2-qk-oru" customClass="TenClock" customModule="TenClock">
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="vE2-qk-oru" secondAttribute="height" multiplier="1:1" id="TA4-rg-OEF"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                 </stackView>
-                                                <view contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="vE2-qk-oru" customClass="TenClock" customModule="TenClock">
-                                                    <frame key="frameInset" minY="12359" width="359" height="359"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="vE2-qk-oru" secondAttribute="height" multiplier="1:1" id="TA4-rg-OEF"/>
-                                                    </constraints>
-                                                </view>
                                             </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="x0S-ZP-DFf" firstAttribute="top" secondItem="2mA-xb-Zmp" secondAttribute="top" id="8QG-eu-Uca"/>
-                                        <constraint firstAttribute="bottom" secondItem="x0S-ZP-DFf" secondAttribute="bottom" id="S7S-0I-90L"/>
-                                        <constraint firstItem="x0S-ZP-DFf" firstAttribute="leading" secondItem="2mA-xb-Zmp" secondAttribute="leadingMargin" id="fPi-L3-uxd"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="x0S-ZP-DFf" secondAttribute="trailingMargin" id="sK6-WO-19w"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="beginTime" destination="wXj-Q7-FoJ" id="Oo6-F1-z2k"/>
-                                    <outlet property="clock" destination="vE2-qk-oru" id="gZI-TB-FUe"/>
-                                    <outlet property="endTime" destination="hKd-96-KPK" id="CC5-cG-rd2"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
+                                            <constraints>
+                                                <constraint firstItem="x0S-ZP-DFf" firstAttribute="top" secondItem="2mA-xb-Zmp" secondAttribute="top" id="8QG-eu-Uca"/>
+                                                <constraint firstAttribute="bottom" secondItem="x0S-ZP-DFf" secondAttribute="bottom" id="S7S-0I-90L"/>
+                                                <constraint firstItem="x0S-ZP-DFf" firstAttribute="leading" secondItem="2mA-xb-Zmp" secondAttribute="leadingMargin" id="fPi-L3-uxd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="x0S-ZP-DFf" secondAttribute="trailingMargin" id="sK6-WO-19w"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="Sbs-3t-FN6" id="yVy-CW-Mmv"/>
                             <outlet property="delegate" destination="Sbs-3t-FN6" id="HRf-eH-KSH"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="beginTime" destination="wXj-Q7-FoJ" id="tb2-P6-qfx"/>
+                        <outlet property="clock" destination="vE2-qk-oru" id="SUK-8D-3i5"/>
+                        <outlet property="endTime" destination="hKd-96-KPK" id="MDS-zN-TKI"/>
+                        <outletCollection property="labels" destination="p2G-bi-8J7" collectionClass="NSMutableArray" id="GDz-y6-dzz"/>
+                        <outletCollection property="labels" destination="t01-7C-7js" collectionClass="NSMutableArray" id="tU4-tH-plI"/>
+                        <outletCollection property="labels" destination="HHO-gx-fBr" collectionClass="NSMutableArray" id="Fef-uF-tR3"/>
+                        <outletCollection property="labels" destination="Ien-ab-9wE" collectionClass="NSMutableArray" id="YTM-ft-TOJ"/>
+                        <outletCollection property="labels" destination="M3F-78-h8r" collectionClass="NSMutableArray" id="4zc-FY-yLN"/>
+                        <outletCollection property="labels" destination="Jhc-1d-56F" collectionClass="NSMutableArray" id="UyN-nd-8a1"/>
+                        <outletCollection property="labels" destination="pNZ-vF-RrH" collectionClass="NSMutableArray" id="o5T-yz-9Vy"/>
+                        <outletCollection property="labels" destination="rhh-aJ-L87" collectionClass="NSMutableArray" id="oMY-xy-xUu"/>
+                        <outletCollection property="labels" destination="jgY-yA-kyC" collectionClass="NSMutableArray" id="J0o-tF-zzr"/>
+                        <outletCollection property="labels" destination="X5M-pX-hio" collectionClass="NSMutableArray" id="ai1-op-BUf"/>
+                        <outletCollection property="labels" destination="wXj-Q7-FoJ" collectionClass="NSMutableArray" id="bSJ-oV-IhG"/>
+                        <outletCollection property="labels" destination="hKd-96-KPK" collectionClass="NSMutableArray" id="Apf-uT-ByQ"/>
+                        <outletCollection property="cells" destination="zsX-bG-4Kc" collectionClass="NSMutableArray" id="kb7-4p-XpU"/>
+                        <outletCollection property="cells" destination="Vqx-cl-DYE" collectionClass="NSMutableArray" id="ALn-nF-7f6"/>
+                        <outletCollection property="cells" destination="Tvj-Cf-YkM" collectionClass="NSMutableArray" id="PUx-jX-0l3"/>
+                        <outletCollection property="cells" destination="QDT-ZE-yHd" collectionClass="NSMutableArray" id="LNa-vS-v10"/>
+                        <outletCollection property="cells" destination="F15-ty-Npy" collectionClass="NSMutableArray" id="loj-Iu-dfw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYl-dj-hXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

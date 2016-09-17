@@ -89,32 +89,32 @@ public class TenClock : UIControl{
     }
 
 
-    var numeralsColor:UIColor? = UIColor.darkGrayColor()
-    var minorTicksColor:UIColor? = UIColor.lightGrayColor()
-    var majorTicksColor:UIColor? = UIColor.blueColor()
-    var centerTextColor:UIColor? = UIColor.darkGrayColor()
+    public var numeralsColor:UIColor? = UIColor.darkGrayColor()
+    public var minorTicksColor:UIColor? = UIColor.lightGrayColor()
+    public var majorTicksColor:UIColor? = UIColor.blueColor()
+    public var centerTextColor:UIColor? = UIColor.darkGrayColor()
 
-    var titleColor = UIColor.lightGrayColor()
-    var titleGradientMask = false
+    public var titleColor = UIColor.lightGrayColor()
+    public var titleGradientMask = false
 
     //disable scrol on closest superview for duration of a valid touch.
     var disableSuperviewScroll = false
 
-    var headBackgroundColor = UIColor.whiteColor()
-    var tailBackgroundColor = UIColor.whiteColor()
+    public var headBackgroundColor = UIColor.whiteColor()
+    public var tailBackgroundColor = UIColor.whiteColor()
 
-    var headTextColor = UIColor.blackColor()
-    var tailTextColor = UIColor.blackColor()
+    public var headTextColor = UIColor.blackColor()
+    public var tailTextColor = UIColor.blackColor()
 
-    var minorTicksEnabled:Bool = true
-    var majorTicksEnabled:Bool = true
-    @objc var disabled:Bool = true {
+    public var minorTicksEnabled:Bool = true
+    public var majorTicksEnabled:Bool = true
+    @objc public var disabled:Bool = false {
         didSet{
         		update()
         }
     }
     
-    
+    public var buttonInset:CGFloat = 2
     func disabledFormattedColor(color:UIColor) -> UIColor{
         return disabled ? color.greyscale : color
     }
@@ -142,11 +142,11 @@ public class TenClock : UIControl{
         comps.minute = Int(val)
         return calendar.dateByAddingComponents(comps, toDate: NSDate().startOfDay, options: .init(rawValue:0))!
     }
-    var startDate: NSDate{
+    public var startDate: NSDate{
         get{return angleToTime(headAngle) }
         set{ headAngle = timeToAngle(newValue) }
     }
-    var endDate: NSDate{
+    public var endDate: NSDate{
         get{return angleToTime(tailAngle) }
         set{ tailAngle = timeToAngle(newValue) }
     }
@@ -171,7 +171,7 @@ public class TenClock : UIControl{
     }
     var trackRadius:CGFloat { return inset.height / 2}
     var buttonRadius:CGFloat { return /*44*/ pathWidth / 2 }
-    var iButtonRadius:CGFloat { return /*44*/ buttonRadius - 1 }
+    var iButtonRadius:CGFloat { return /*44*/ buttonRadius - buttonInset }
     var strokeColor: UIColor {
         get {
             return UIColor(CGColor: trackLayer.strokeColor!)
@@ -204,7 +204,7 @@ public class TenClock : UIControl{
         super.prepareForInterfaceBuilder()
         update()
     }
-    func update() {
+    public func update() {
         let mm = min(self.layer.bounds.size.height, self.layer.bounds.size.width)
         CATransaction.begin()
         self.layer.size = CGSize(width: mm, height: mm)
