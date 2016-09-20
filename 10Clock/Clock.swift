@@ -77,7 +77,7 @@ public class TenClock : UIControl{
         }
     }
 
-    var tailAngle: CGFloat = 0.7 * CGFloat(M_PI) {
+    var tailAngle: CGFloat = CGFloat(2 * M_PI) + 0.7 * CGFloat(M_PI) {
         didSet{
             if (tailAngle  > headAngle + fourPi){
                 tailAngle -= fourPi
@@ -352,7 +352,7 @@ public class TenClock : UIControl{
         titleTextLayer.font = cgFont
         //var computedTailAngle = tailAngle //+ (headAngle > tailAngle ? twoPi : 0)
         //computedTailAngle +=  (headAngle > computedTailAngle ? twoPi : 0)
-        let fiveMinIncrements = Int( ((tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/)
+        let fiveMinIncrements = 288 - Int( ((tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/)
         titleTextLayer.string = "\(fiveMinIncrements / 12)hr \((fiveMinIncrements % 12) * 5)min"
         titleTextLayer.position = gradientLayer.center
 
