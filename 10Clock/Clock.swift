@@ -77,7 +77,7 @@ public class TenClock : UIControl{
         }
     }
 
-    var tailAngle: CGFloat = CGFloat(2 * M_PI) + 0.7 * CGFloat(M_PI) {
+    var tailAngle: CGFloat = 0.7 * CGFloat(M_PI) {
         didSet{
             if (tailAngle  > headAngle + fourPi){
                 tailAngle -= fourPi
@@ -267,8 +267,8 @@ public class TenClock : UIControl{
         pathLayer.path = UIBezierPath(
             arcCenter: arcCenter,
             radius: trackRadius,
-            startAngle: ( twoPi ) -  headAngle,
-            endAngle: ( twoPi  ) -  ((tailAngle - headAngle) >= twoPi ? tailAngle - twoPi : tailAngle),
+            startAngle: ( twoPi  ) -  ((tailAngle - headAngle) >= twoPi ? tailAngle - twoPi : tailAngle),
+            endAngle: ( twoPi ) -  headAngle,
             clockwise: true).CGPath
     }
 
@@ -312,10 +312,10 @@ public class TenClock : UIControl{
         topTailLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
         let stText = tlabel("Sleep", color: disabledFormattedColor(headTextColor))
         let endText = tlabel("Wake",color: disabledFormattedColor(tailTextColor))
-        stText.position = topHeadLayer.center
-        endText.position = topTailLayer.center
-        topHeadLayer.addSublayer(stText)
-        topTailLayer.addSublayer(endText)
+        stText.position = topTailLayer.center
+        endText.position = topHeadLayer.center
+        topHeadLayer.addSublayer(endText)
+        topTailLayer.addSublayer(stText)
     }
 
 
@@ -352,7 +352,7 @@ public class TenClock : UIControl{
         titleTextLayer.font = cgFont
         //var computedTailAngle = tailAngle //+ (headAngle > tailAngle ? twoPi : 0)
         //computedTailAngle +=  (headAngle > computedTailAngle ? twoPi : 0)
-        let fiveMinIncrements = 288 - Int( ((tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/)
+        let fiveMinIncrements = Int( ((tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/)
         titleTextLayer.string = "\(fiveMinIncrements / 12)hr \((fiveMinIncrements % 12) * 5)min"
         titleTextLayer.position = gradientLayer.center
 
