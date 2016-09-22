@@ -267,8 +267,8 @@ public class TenClock : UIControl{
         pathLayer.path = UIBezierPath(
             arcCenter: arcCenter,
             radius: trackRadius,
-            startAngle: ( twoPi ) -  headAngle,
-            endAngle: ( twoPi  ) -  ((tailAngle - headAngle) >= twoPi ? tailAngle - twoPi : tailAngle),
+            startAngle: ( twoPi  ) -  ((tailAngle - headAngle) >= twoPi ? tailAngle - twoPi : tailAngle),
+            endAngle: ( twoPi ) -  headAngle,
             clockwise: true).CGPath
     }
 
@@ -312,10 +312,10 @@ public class TenClock : UIControl{
         topTailLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
         let stText = tlabel("Sleep", color: disabledFormattedColor(headTextColor))
         let endText = tlabel("Wake",color: disabledFormattedColor(tailTextColor))
-        stText.position = topHeadLayer.center
-        endText.position = topTailLayer.center
-        topHeadLayer.addSublayer(stText)
-        topTailLayer.addSublayer(endText)
+        stText.position = topTailLayer.center
+        endText.position = topHeadLayer.center
+        topHeadLayer.addSublayer(endText)
+        topTailLayer.addSublayer(stText)
     }
 
 
