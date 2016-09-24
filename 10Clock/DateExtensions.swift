@@ -4,15 +4,15 @@
 //
 
 import Foundation
-extension NSDate {
-    var startOfDay: NSDate {
-        return NSCalendar.currentCalendar().startOfDayForDate(self)
+extension Date {
+    var startOfDay: Date {
+        return Calendar.current.startOfDay(for: self)
     }
 
-    var endOfDay: NSDate? {
-        let components = NSDateComponents()
+    var endOfDay: Date? {
+        var components = DateComponents()
         components.day = 1
         components.second = -1
-        return NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: startOfDay, options: NSCalendarOptions())
+        return (Calendar.current as NSCalendar).date(byAdding: components, to: startOfDay, options: NSCalendar.Options())
     }
 }
