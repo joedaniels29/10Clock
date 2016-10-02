@@ -16,7 +16,7 @@ extension UIColor {
         if self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
             return  UIColor(hue: hue, saturation: 0, brightness: brightness, alpha: alpha / 2)
         }else {
-            return UIColor.grayColor()
+            return UIColor.gray
         }
     }
     func modified(withAdditionalHue hue: CGFloat, additionalSaturation: CGFloat, additionalBrightness: CGFloat) -> UIColor {
@@ -40,7 +40,7 @@ extension UIColor {
 extension Angle{
     var reverse:Angle{return CGFloat(2 * M_PI) - self}
 }
-extension FloatingPointType{
+extension FloatingPoint{
     var isBad:Bool{ return isNaN || isInfinite }
     var checked:Self{
         guard !isBad && !isInfinite else {
@@ -55,7 +55,7 @@ typealias Angle = CGFloat
 func df() -> CGFloat {
     return    CGFloat(drand48()).checked
 }
-func clockDescretization(val: CGFloat) -> CGFloat{
+func clockDescretization(_ val: CGFloat) -> CGFloat{
     let min:Double  = 0
     let max:Double = 2 * Double(M_PI)
     let steps:Double = 144
@@ -67,7 +67,7 @@ func clockDescretization(val: CGFloat) -> CGFloat{
 }
 extension CALayer {
     func doDebug(){
-        self.borderColor = UIColor(hue: df() , saturation: df(), brightness: 1, alpha: 1).CGColor
+        self.borderColor = UIColor(hue: df() , saturation: df(), brightness: 1, alpha: 1).cgColor
         self.borderWidth = 2;
         self.sublayers?.forEach({$0.doDebug()})
     }
@@ -115,12 +115,12 @@ extension CGVector{
     var magnitude:CGFloat { return sqrt(pow(dx, 2) + pow(dy,2)).checked}
     var normalized: CGVector { return CGVector(dx:dx / magnitude,  dy: dy / magnitude).checked }
     var point:CGPoint { return CGPoint(x: dx, y: dy).checked}
-    func rotate(angle:Angle) -> CGVector { return CGVector(dx: dx * cos(angle) - dy * sin(angle), dy: dx * sin(angle) + dy * cos(angle) ).checked}
+    func rotate(_ angle:Angle) -> CGVector { return CGVector(dx: dx * cos(angle) - dy * sin(angle), dy: dx * sin(angle) + dy * cos(angle) ).checked}
     
-    func dot(vec2:CGVector) -> CGFloat { return (dx * vec2.dx + dy * vec2.dy).checked}
-    func add(vec2:CGVector) -> CGVector { return CGVector(dx:dx + vec2.dx , dy: dy + vec2.dy).checked}
-    func cross(vec2:CGVector) -> CGFloat { return (dx * vec2.dy - dy * vec2.dx).checked}
-    func scale(c:CGFloat) -> CGVector { return CGVector(dx:dx * c , dy: dy * c).checked}
+    func dot(_ vec2:CGVector) -> CGFloat { return (dx * vec2.dx + dy * vec2.dy).checked}
+    func add(_ vec2:CGVector) -> CGVector { return CGVector(dx:dx + vec2.dx , dy: dy + vec2.dy).checked}
+    func cross(_ vec2:CGVector) -> CGFloat { return (dx * vec2.dy - dy * vec2.dx).checked}
+    func scale(_ c:CGFloat) -> CGVector { return CGVector(dx:dx * c , dy: dy * c).checked}
     
     
     init( from:CGPoint, to:CGPoint){
@@ -141,7 +141,7 @@ extension CGVector{
     var theta:Angle{
         return atan2(dy, dx)}
     
-    static func theta(vec1:CGVector, vec2:CGVector) -> Angle{
+    static func theta(_ vec1:CGVector, vec2:CGVector) -> Angle{
 		var i = vec1.normalized.dot(vec2.normalized)
         if (i > 1) {
     		i = 1;
@@ -151,7 +151,7 @@ extension CGVector{
         }
         return acos(i).checked
     }
-    static func signedTheta(vec1:CGVector, vec2:CGVector) -> Angle{
+    static func signedTheta(_ vec1:CGVector, vec2:CGVector) -> Angle{
         
         return (vec1.normalized.cross(vec2.normalized) > 0 ?  -1 : 1) * theta(vec1.normalized, vec2: vec2.normalized).checked
     }
