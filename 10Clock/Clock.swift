@@ -39,7 +39,6 @@ public class TenClock : UIControl{
     let headLayer = CAShapeLayer()
     let tailLayer = CAShapeLayer()
     let topHeadLayer = CAShapeLayer()
-    let topTailLayer = CAShapeLayer()
     let numeralsLayer = CALayer()
     let titleTextLayer = CATextLayer()
     let overallPathLayer = CALayer()
@@ -300,24 +299,17 @@ public class TenClock : UIControl{
         headLayer.size = size
         tailLayer.position = tailPoint
         headLayer.position = headPoint
-        topTailLayer.position = tailPoint
         topHeadLayer.position = headPoint
         headLayer.fillColor = UIColor.yellow.cgColor
         tailLayer.fillColor = UIColor.green.cgColor
-        topTailLayer.path = iCircle
         topHeadLayer.path = iCircle
-        topTailLayer.size = iSize
         topHeadLayer.size = iSize
         topHeadLayer.fillColor = disabledFormattedColor(color: headBackgroundColor).cgColor
-        topTailLayer.fillColor = disabledFormattedColor(color: tailBackgroundColor).cgColor
         topHeadLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
-        topTailLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
-        let stText = tlabel(str: "Sleep", color: disabledFormattedColor(color: headTextColor))
         let endText = tlabel(str: "Wake",color: disabledFormattedColor(color: tailTextColor))
-        stText.position = topTailLayer.center
         endText.position = topHeadLayer.center
         topHeadLayer.addSublayer(endText)
-        topTailLayer.addSublayer(stText)
+//        topTailLayer.addSublayer(stText)
     }
 
 
@@ -402,7 +394,6 @@ public class TenClock : UIControl{
         layer.addSublayer(overallPathLayer)
         layer.addSublayer(gradientLayer)
         gradientLayer.addSublayer(topHeadLayer)
-        gradientLayer.addSublayer(topTailLayer)
         update()
         strokeColor = disabledFormattedColor(color: tintColor)
     }
