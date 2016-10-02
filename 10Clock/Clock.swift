@@ -334,7 +334,7 @@ public class TenClock : UIControl{
             numeralsLayer.addSublayer(l)
         }
     }
-    func updateWatchFaceTitle(){
+    func updateWatchFaceTitle() {
         let f = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title1)
         let cgFont = CTFontCreateWithName(f.fontName as CFString?, f.pointSize/2,nil)
 //        let titleTextLayer = CATextLayer()
@@ -346,7 +346,7 @@ public class TenClock : UIControl{
         titleTextLayer.font = cgFont
         //var computedTailAngle = tailAngle //+ (headAngle > tailAngle ? twoPi : 0)
         //computedTailAngle +=  (headAngle > computedTailAngle ? twoPi : 0)
-        let fiveMinIncrements = Int( ((tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/)
+        let fiveMinIncrements = Int( (((tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/).truncatingRemainder(dividingBy: 144) /*modulo 144 to get less than 12 hours*/)
         titleTextLayer.string = "\(fiveMinIncrements / 12)hr \((fiveMinIncrements % 12) * 5)min"
         titleTextLayer.position = gradientLayer.center
 
@@ -478,12 +478,11 @@ public class TenClock : UIControl{
         case headLayer:
             pointMover = pp({ _ in self.headAngle}, {self.headAngle += $0; self.tailAngle += 0})
         case tailLayer:
-            pointMover = pp({_ in self.tailAngle}, {self.headAngle += 0;self.tailAngle += $0})
+            //No moving on the tail layer
+            pointMover = nil
         case pathLayer:
-            pointMover = pp({ pt in
-                let x = CGVector(from: self.bounds.center, to:CGPoint(x: prev.x, y: self.layer.bounds.height - prev.y)).theta;
-                prev = pt;
-                return x }, {self.headAngle += $0; self.tailAngle += $0 })
+            //No moving on the path layer
+            pointMover = nil
         default: break
         }
 
