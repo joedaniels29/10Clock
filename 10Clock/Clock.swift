@@ -151,6 +151,12 @@ public class TenClock : UIControl{
         get{return angleToTime(angle: tailAngle) }
         set{ tailAngle = timeToAngle(date: newValue) }
     }
+    
+    lazy var timeFormatter : DateFormatter = {
+        let f = DateFormatter()
+        f.timeStyle = .short
+        return f
+    }()
 
     var internalRadius:CGFloat {
         return internalInset.height
@@ -196,10 +202,17 @@ public class TenClock : UIControl{
     // input an angle, output: 0 to 4pi
     func angleToTime(angle: Angle) -> Date{
         let dAngle = Double(angle)
-        let min = CGFloat(((M_PI_2 - dAngle) / (2 * M_PI)) * (12 * 60))
+        let a = ((M_PI_2 - dAngle) / (2 * M_PI))
+        let min = CGFloat(a * (12 * 60))
         let startOfToday = Date().startOfDay
 
-        return self.calendar.date(byAdding: Calendar.Component.minute, value: Int(medStepFunction(val: min, stepSize: 5/* minute steps*/)), to: startOfToday)!
+        var minutesAdded =  Int(medStepFunction(val: min, stepSize: 5/* minute steps*/))
+        
+        if minutesAdded > -720 {
+            print(minutesAdded)
+        }
+        
+        return self.calendar.date(byAdding: Calendar.Component.minute, value: minutesAdded, to: startOfToday)!
     }
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
@@ -334,20 +347,21 @@ public class TenClock : UIControl{
             numeralsLayer.addSublayer(l)
         }
     }
-    func updateWatchFaceTitle() {
+    func updateWatchFaceTitle(){
         let f = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title1)
         let cgFont = CTFontCreateWithName(f.fontName as CFString?, f.pointSize/2,nil)
 //        let titleTextLayer = CATextLayer()
-        titleTextLayer.bounds.size = CGSize( width: titleTextInset.size.width, height: 50)
+        titleTextLayer.bounds.size = CGSize( width: titleTextInset.size.width, height: 70)
         titleTextLayer.fontSize = f.pointSize
         titleTextLayer.alignmentMode = kCAAlignmentCenter
         titleTextLayer.foregroundColor = disabledFormattedColor(color: centerTextColor ?? tintColor).cgColor
         titleTextLayer.contentsScale = UIScreen.main.scale
         titleTextLayer.font = cgFont
-        //var computedTailAngle = tailAngle //+ (headAngle > tailAngle ? twoPi : 0)
-        //computedTailAngle +=  (headAngle > computedTailAngle ? twoPi : 0)
+        
         let fiveMinIncrements = Int( (((tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/).truncatingRemainder(dividingBy: 144) /*modulo 144 to get less than 12 hours*/)
-        titleTextLayer.string = "\(fiveMinIncrements / 12)hr \((fiveMinIncrements % 12) * 5)min"
+        let durationString = "\(fiveMinIncrements / 12)h \((fiveMinIncrements % 12) * 5)min"
+        let selectedString = self.timeFormatter.string(from: self.startDate)
+        titleTextLayer.string = "\(selectedString)\n\(durationString)"
         titleTextLayer.position = gradientLayer.center
 
     }
@@ -466,9 +480,11 @@ public class TenClock : UIControl{
                 let c = self.layer.center
                 let computedP = CGPoint(x: p.x, y: self.layer.bounds.height - p.y)
                 let v1 = CGVector(from: c, to: computedP)
+                let angle =  g (p)
                 let v2 = CGVector(angle:g( p ))
-
+                
                 s(clockDescretization(CGVector.signedTheta(v1, vec2: v2)))
+                print("Head Angle: \(self.headAngle), Tail Angle: \(self.tailAngle)")
                 self.update()
             }
 
