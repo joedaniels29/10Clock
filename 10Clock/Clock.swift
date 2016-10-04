@@ -105,6 +105,9 @@ public class TenClock : UIControl{
 
     public var headTextColor = UIColor.blackColor()
     public var tailTextColor = UIColor.blackColor()
+    
+    public var headText = "Wake"
+    public var tailText = "Sleep"
 
     public var minorTicksEnabled:Bool = true
     public var majorTicksEnabled:Bool = true
@@ -310,8 +313,8 @@ public class TenClock : UIControl{
         topTailLayer.fillColor = disabledFormattedColor(tailBackgroundColor).CGColor
         topHeadLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
         topTailLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
-        let stText = tlabel("Sleep", color: disabledFormattedColor(headTextColor))
-        let endText = tlabel("Wake",color: disabledFormattedColor(tailTextColor))
+        let stText = tlabel(tailText, color: disabledFormattedColor(headTextColor))
+        let endText = tlabel(headText,color: disabledFormattedColor(tailTextColor))
         stText.position = topTailLayer.center
         endText.position = topHeadLayer.center
         topHeadLayer.addSublayer(endText)
