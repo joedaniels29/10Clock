@@ -105,6 +105,9 @@ public class TenClock : UIControl{
 
     public var headTextColor = UIColor.blackColor()
     public var tailTextColor = UIColor.blackColor()
+    
+    public var shouldMoveHead = true
+    public var shouldMoveTail = true
 
     public var minorTicksEnabled:Bool = true
     public var majorTicksEnabled:Bool = true
@@ -483,9 +486,17 @@ public class TenClock : UIControl{
 
         switch(layer){
         case headLayer:
-            pointMover = pp({ _ in self.headAngle}, {self.headAngle += $0; self.tailAngle += 0})
+            if (shouldMoveHead) {
+                pointMover = pp({ _ in self.headAngle}, {self.headAngle += $0; self.tailAngle += 0})
+            } else {
+                pointMover = nil
+            }
         case tailLayer:
-            pointMover = pp({_ in self.tailAngle}, {self.headAngle += 0;self.tailAngle += $0})
+            if (shouldMoveTail) {
+                pointMover = pp({_ in self.tailAngle}, {self.headAngle += 0;self.tailAngle += $0})
+            } else {
+                pointMover = nil
+            }
         case pathLayer:
             pointMover = pp({ pt in
                 let x = CGVector(from: self.bounds.center, to:CGPointMake(prev.x, self.layer.bounds.height - prev.y)).theta;
