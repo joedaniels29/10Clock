@@ -19,11 +19,16 @@ self.tenClock.endDate = NSDate. //sometime later
 ```
 
 make the date today.
-then, to get updates for when the date changes, adopt the protocol `TenClockDelegate` and observe:
+then, to get updates for when the date changes, adopt the protocol `TenClockDelegate`:
 
 ```swift
 import TenClock
-class ViewController: UIViewController, TenClockDelegate {
+class ViewController: UIViewController, TenClockDelegate {    
+    //Executed for every touch.
+    func timesUpdated(_ clock:TenClock, startDate:Date,  endDate:Date  ) -> (){
+        //...
+    }
+
     func timesChanged(clock:TenClock, startDate:NSDate,  endDate:NSDate  ) -> (){
         print("start at: \(startDate), end at: \(endDate)")
         self.beginTimeLabel.text = dateFormatter.stringFromDate(startDate)

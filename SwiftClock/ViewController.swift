@@ -14,13 +14,14 @@ class ViewController: UITableViewController, TenClockDelegate {
     @IBAction func colorPreviewValueChanged(_ sender: UISegmentedControl) {
         switch(sender.selectedSegmentIndex){
         case 0:
-            clock.tintColor = .blue
+            self.view.tintColor =  UIButton(type: .system).titleColor(for: .normal)!
         case 1:
-            clock.tintColor = .green
+            self.view.tintColor = UIColor(colorLiteralRed: 0, green: 0.7, blue: 0, alpha: 1)
         case 2:
-            clock.tintColor = .purple
+            self.view.tintColor = .purple
         default:()
         }
+        
      	clock.update()
     }
 
@@ -57,6 +58,7 @@ class ViewController: UITableViewController, TenClockDelegate {
     }
     @IBOutlet var cells: [UITableViewCell]!
     @IBOutlet var labels: [UILabel]!
+    @IBOutlet var controls: [UISegmentedControl]!
     @IBOutlet weak var endTime: UILabel!
     @IBOutlet weak var beginTime: UILabel!
     
@@ -69,16 +71,22 @@ class ViewController: UITableViewController, TenClockDelegate {
         return dateFormatter
     }()
     func timesChanged(_ clock:TenClock, startDate:Date,  endDate:Date  ) -> (){
-//        print("start at: \(startDate), end at: \(endDate)")
-		self.beginTime.text = dateFormatter.string(from: startDate)
-        self.endTime.text = dateFormatter.string(from: endDate)
+        print("start at: \(startDate), end at: \(endDate)")
+		
         
     
     }
+    func timesUpdated(_ clock:TenClock, startDate:Date,  endDate:Date  ) -> (){
+        self.beginTime.text = dateFormatter.string(from: startDate)
+        self.endTime.text = dateFormatter.string(from: endDate)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        clock.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
         refresh()

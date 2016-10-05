@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 
 @objc public  protocol TenClockDelegate {
-    func timesChanged(_ clock:TenClock, startDate:Date,  endDate:Date  ) -> ()
-
+    //Executed for every touch.
+    @objc optional func timesUpdated(_ clock:TenClock, startDate:Date,  endDate:Date  ) -> ()
+    //Executed after the user lifts their finger from the control.
+    @objc optional func timesChanged(_ clock:TenClock, startDate:Date,  endDate:Date  ) -> ()
 }
 func medStepFunction(_ val: CGFloat, stepSize:CGFloat) -> CGFloat{
     let dStepSize = Double(stepSize)
@@ -103,8 +105,8 @@ open class TenClock : UIControl{
     //disable scrol on closest superview for duration of a valid touch.
     var disableSuperviewScroll = false
 
-    open var headBackgroundColor = UIColor.white
-    open var tailBackgroundColor = UIColor.white
+    open var headBackgroundColor = UIColor.white.withAlphaComponent(0.8)
+    open var tailBackgroundColor = UIColor.white.withAlphaComponent(0.8)
 
     open var headTextColor = UIColor.black
     open var tailTextColor = UIColor.black
@@ -266,7 +268,7 @@ open class TenClock : UIControl{
         let arcCenter = pathLayer.center
         pathLayer.fillColor = UIColor.clear.cgColor
         pathLayer.lineWidth = pathWidth
-        print("start = \(headAngle / CGFloat(M_PI)), end = \(tailAngle / CGFloat(M_PI))")
+//        print("start = \(headAngle / CGFloat(M_PI)), end = \(tailAngle / CGFloat(M_PI))")
         pathLayer.path = UIBezierPath(
             arcCenter: arcCenter,
             radius: trackRadius,
@@ -530,15 +532,15 @@ open class TenClock : UIControl{
 //        }
 //        do something
 //        valueChanged = false
+        delegate?.timesChanged?(self, startDate: self.startDate, endDate: endDate)
     }
     override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first, let pointMover = pointMover else { return }
 //        print(touch.locationInView(self))
         pointMover(touch.location(in: self))
-
-        if let delegate = delegate {
-            delegate.timesChanged(self, startDate: self.startDate, endDate: endDate)
-        }
+        
+    	delegate?.timesUpdated?(self, startDate: self.startDate, endDate: endDate)
+        
 
     }
 
