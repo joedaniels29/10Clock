@@ -11,14 +11,14 @@ import TenClock
 
 class ViewController: UITableViewController, TenClockDelegate {
     
-    @IBAction func colorPreviewValueChanged(sender: UISegmentedControl) {
+    @IBAction func colorPreviewValueChanged(_ sender: UISegmentedControl) {
         switch(sender.selectedSegmentIndex){
         case 0:
-            clock.tintColor = UIColor.blueColor()
+            clock.tintColor = .blue
         case 1:
-            clock.tintColor = UIColor.greenColor()
+            clock.tintColor = .green
         case 2:
-            clock.tintColor = UIColor.purpleColor()
+            clock.tintColor = .purple
         default:()
         }
      	clock.update()
@@ -26,16 +26,17 @@ class ViewController: UITableViewController, TenClockDelegate {
 
     @IBOutlet weak var clock: TenClock!
     
+
     
-    @IBAction func backgroundValueChanged(sender: UISegmentedControl) {
+    @IBAction func backgroundValueChanged(_ sender: UISegmentedControl) {
         var bg:UIColor?, fg:UIColor?
         switch(sender.selectedSegmentIndex){
         case 0:
-            bg = UIColor.whiteColor()
-            fg = UIColor.blackColor()
+            bg = .white
+            fg = .black
         case 1:
-            fg = UIColor.whiteColor()
-            bg = UIColor.blackColor()
+            fg = .white
+            bg = .black
         default:()
         }
 
@@ -48,10 +49,10 @@ class ViewController: UITableViewController, TenClockDelegate {
         
     }
 
-    @IBAction func enabledValueChanged(sender: AnyObject) {
+    @IBAction func enabledValueChanged(_ sender: AnyObject) {
         clock.disabled = !clock.disabled
     }
-    @IBAction func gradientValueChanged(sender: AnyObject) {
+    @IBAction func gradientValueChanged(_ sender: AnyObject) {
         
     }
     @IBOutlet var cells: [UITableViewCell]!
@@ -62,15 +63,15 @@ class ViewController: UITableViewController, TenClockDelegate {
     
     
     
-    lazy var dateFormatter: NSDateFormatter = {
-        let dateFormatter = NSDateFormatter()
+    lazy var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm a"
         return dateFormatter
     }()
-    func timesChanged(clock:TenClock, startDate:NSDate,  endDate:NSDate  ) -> (){
+    func timesChanged(_ clock:TenClock, startDate:Date,  endDate:Date  ) -> (){
 //        print("start at: \(startDate), end at: \(endDate)")
-		self.beginTime.text = dateFormatter.stringFromDate(startDate)
-        self.endTime.text = dateFormatter.stringFromDate(endDate)
+		self.beginTime.text = dateFormatter.string(from: startDate)
+        self.endTime.text = dateFormatter.string(from: endDate)
         
     
     }
@@ -79,7 +80,7 @@ class ViewController: UITableViewController, TenClockDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         refresh()
     }
     var c:TenClock?
@@ -98,7 +99,9 @@ class ViewController: UITableViewController, TenClockDelegate {
         
         
     }
-    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+
+    
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         refresh()
     }
     override func didReceiveMemoryWarning() {
