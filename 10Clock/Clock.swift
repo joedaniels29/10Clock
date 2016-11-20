@@ -141,15 +141,14 @@ public class TenClock : UIControl{
         var comps = DateComponents()
         comps.minute = Int(val)
         return calendar.date(byAdding: comps, to: Date().startOfDay)!
-//        return calendar.date(byAdding: comps as DateComponents, to: Date().startOfDay, options: .init(rawValue:0))!
     }
     public var startDate: Date{
-        get{return angleToTime(angle: headAngle) }
-        set{ headAngle = timeToAngle(date: newValue) }
-    }
-    public var endDate: Date{
         get{return angleToTime(angle: tailAngle) }
         set{ tailAngle = timeToAngle(date: newValue) }
+    }
+    public var endDate: Date{
+        get{return angleToTime(angle: headAngle) }
+        set{ headAngle = timeToAngle(date: newValue) }
     }
     
     lazy var timeFormatter : DateFormatter = {
@@ -247,6 +246,8 @@ public class TenClock : UIControl{
         updateWatchFaceNumerals()
         updateWatchFaceTitle()
         CATransaction.commit()
+        
+        print("End date:\n \(self.endDate)")
 
     }
     func updateGradientLayer() {
@@ -360,7 +361,7 @@ public class TenClock : UIControl{
         
         let fiveMinIncrements = Int( (((tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/).truncatingRemainder(dividingBy: 144) /*modulo 144 to get less than 12 hours*/)
         let durationString = "\(fiveMinIncrements / 12)h \((fiveMinIncrements % 12) * 5)min"
-        let selectedString = self.timeFormatter.string(from: self.startDate)
+        let selectedString = self.timeFormatter.string(from: self.endDate)
         titleTextLayer.string = "\(selectedString)\n\(durationString)"
         titleTextLayer.position = gradientLayer.center
 
@@ -492,7 +493,7 @@ public class TenClock : UIControl{
 
         switch(layer){
         case headLayer:
-            pointMover = pp({ _ in self.headAngle}, {self.headAngle += $0; self.tailAngle += 0})
+            pointMover = pp({ _ in self.headAngle}, {self.headAngle += $0})
         case tailLayer:
             //No moving on the tail layer
             pointMover = nil
