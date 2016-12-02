@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		123A00098C8A1EB16C8B2BAC /* CoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A0EBFF5B6F30085CBA25B /* CoreAnimation.swift */; };
+		19BC027A1CA5DD16B7E80F3E /* AvoidingSubviewScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BC0C2B4888BE7C180E9760 /* AvoidingSubviewScrollViewDelegate.swift */; };
+		19BC0D0CBB6B9292204BF431 /* AvoidingSubviewScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BC0C2B4888BE7C180E9760 /* AvoidingSubviewScrollViewDelegate.swift */; };
 		D8B040301D7F2BB200B11B6A /* TenClock.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B0402F1D7F2BB200B11B6A /* TenClock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8B0403A1D7F69D700B11B6A /* CoreGraphicsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A072C9B05F82F42BFA028 /* CoreGraphicsExtensions.swift */; };
 		D8B0403C1D7F69D700B11B6A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A0A5F3EBBDD4415A60AEF /* DateExtensions.swift */; };
@@ -58,6 +60,7 @@
 		123A0A5F3EBBDD4415A60AEF /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		123A0C52CF7F9A43C23EF319 /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		123A0EBFF5B6F30085CBA25B /* CoreAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreAnimation.swift; sourceTree = "<group>"; };
+		19BC0C2B4888BE7C180E9760 /* AvoidingSubviewScrollViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvoidingSubviewScrollViewDelegate.swift; sourceTree = "<group>"; };
 		D82D37F71D850C44004BB61C /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		D8B0402D1D7F2BB200B11B6A /* TenClock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TenClock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B0402F1D7F2BB200B11B6A /* TenClock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TenClock.h; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 				D82D37F71D850C44004BB61C /* module.modulemap */,
 				123A0A5F3EBBDD4415A60AEF /* DateExtensions.swift */,
 				123A0EBFF5B6F30085CBA25B /* CoreAnimation.swift */,
+				19BC0C2B4888BE7C180E9760 /* AvoidingSubviewScrollViewDelegate.swift */,
 			);
 			path = 10Clock;
 			sourceTree = "<group>";
@@ -253,6 +257,8 @@
 					};
 					D8F6E81C1D7745B800E29842 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 55WZH7L5M4;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -312,6 +318,7 @@
 				D8B0403A1D7F69D700B11B6A /* CoreGraphicsExtensions.swift in Sources */,
 				D8B0403C1D7F69D700B11B6A /* DateExtensions.swift in Sources */,
 				123A00098C8A1EB16C8B2BAC /* CoreAnimation.swift in Sources */,
+				19BC0D0CBB6B9292204BF431 /* AvoidingSubviewScrollViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8B040491D7F6BDF00B11B6A /* SwiftClockTests.swift in Sources */,
+				19BC027A1CA5DD16B7E80F3E /* AvoidingSubviewScrollViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +535,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 55WZH7L5M4;
 				INFOPLIST_FILE = SwiftClock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JD.SwiftClock;
@@ -539,6 +549,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 55WZH7L5M4;
 				INFOPLIST_FILE = SwiftClock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JD.SwiftClock;

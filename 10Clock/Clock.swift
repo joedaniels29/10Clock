@@ -466,9 +466,10 @@ open class TenClock : UIControl{
         let pointOfTouch = touch.location(in: self)
         guard let layer = self.overallPathLayer.hitTest( pointOfTouch ) else { return }
 //         superview:UIView
-//        while let superview = touch.gestureRecognizers{
+//        for superview in touch.gestureRecognizers!{
 //            guard let superview = superview as? UIPanGestureRecognizer else {  continue }
-//            superview.scrollEnabled = false
+//            superview.isEnabled = false
+//            superview.isEnabled = true
 //            break
 //        }
 
