@@ -315,8 +315,8 @@ open class TenClock : UIControl{
         topTailLayer.fillColor = disabledFormattedColor(tailBackgroundColor).cgColor
         topHeadLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
         topTailLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
-        let stText = tlabel("Sleep", color: disabledFormattedColor(headTextColor))
-        let endText = tlabel("Wake",color: disabledFormattedColor(tailTextColor))
+        let stText = tlabel("Start", color: disabledFormattedColor(headTextColor))
+        let endText = tlabel("End",color: disabledFormattedColor(tailTextColor))
         stText.position = topTailLayer.center
         endText.position = topHeadLayer.center
         topHeadLayer.addSublayer(endText)
