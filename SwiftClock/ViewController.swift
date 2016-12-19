@@ -91,8 +91,9 @@ class ViewController: UITableViewController, TenClockDelegate {
             x.delaysContentTouches = false
         }
         
-        clock.startDate = Date().addingTimeInterval(-60*5)
-        clock.endDate = Date()
+        clock.startDate = Date()
+        clock.endDate = Date().addingTimeInterval(-60 * 60 * 8 )
+        clock.update()
         clock.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {

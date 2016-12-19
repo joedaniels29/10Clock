@@ -357,7 +357,12 @@ open class TenClock : UIControl{
         titleTextLayer.font = cgFont
         //var computedTailAngle = tailAngle //+ (headAngle > tailAngle ? twoPi : 0)
         //computedTailAngle +=  (headAngle > computedTailAngle ? twoPi : 0)
-        let fiveMinIncrements = Int( ((tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/)
+        var fiveMinIncrements = Int( ((tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/)
+        if fiveMinIncrements < 0 {
+            print("tenClock:Err: is negative")
+            fiveMinIncrements += (24 * (60/5))
+        }
+        
         titleTextLayer.string = "\(fiveMinIncrements / 12)hr \((fiveMinIncrements % 12) * 5)min"
         titleTextLayer.position = gradientLayer.center
 
