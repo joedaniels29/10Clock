@@ -108,6 +108,9 @@ open class TenClock : UIControl{
     open var headBackgroundColor = UIColor.white.withAlphaComponent(0.8)
     open var tailBackgroundColor = UIColor.white.withAlphaComponent(0.8)
 
+    open var headText: String = "Start"
+    open var tailText: String = "End"
+
     open var headTextColor = UIColor.black
     open var tailTextColor = UIColor.black
 
@@ -315,8 +318,8 @@ open class TenClock : UIControl{
         topTailLayer.fillColor = disabledFormattedColor(tailBackgroundColor).cgColor
         topHeadLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
         topTailLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
-        let stText = tlabel("Start", color: disabledFormattedColor(headTextColor))
-        let endText = tlabel("End",color: disabledFormattedColor(tailTextColor))
+        let stText = tlabel(headText, color: disabledFormattedColor(headTextColor))
+        let endText = tlabel(tailText, color: disabledFormattedColor(tailTextColor))
         stText.position = topTailLayer.center
         endText.position = topHeadLayer.center
         topHeadLayer.addSublayer(endText)
