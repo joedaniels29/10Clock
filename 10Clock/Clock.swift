@@ -152,12 +152,12 @@ open class TenClock : UIControl{
 //        return calendar.dateByAddingComponents(comps, toDate: Date().startOfDay as Date, options: .init(rawValue:0))!
     }
     open var startDate: Date{
-        get{return angleToTime(tailAngle) }
-        set{ tailAngle = timeToAngle(newValue) }
-    }
-    open var endDate: Date{
         get{return angleToTime(headAngle) }
         set{ headAngle = timeToAngle(newValue) }
+    }
+    open var endDate: Date{
+        get{return angleToTime(tailAngle) }
+        set{ tailAngle = timeToAngle(newValue) }
     }
 
     var internalRadius:CGFloat {
@@ -275,8 +275,8 @@ open class TenClock : UIControl{
         pathLayer.path = UIBezierPath(
             arcCenter: arcCenter,
             radius: trackRadius,
-            startAngle: ( twoPi  ) -  ((tailAngle - headAngle) >= twoPi ? tailAngle - twoPi : tailAngle),
-            endAngle: ( twoPi ) -  headAngle,
+            startAngle: ( twoPi  ) -  ((headAngle - tailAngle) >= twoPi ? headAngle - twoPi : headAngle),
+            endAngle: ( twoPi ) -  tailAngle,
             clockwise: true).cgPath
     }
 
@@ -320,10 +320,10 @@ open class TenClock : UIControl{
         topTailLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
         let stText = tlabel(headText, color: disabledFormattedColor(headTextColor))
         let endText = tlabel(tailText, color: disabledFormattedColor(tailTextColor))
-        stText.position = topTailLayer.center
-        endText.position = topHeadLayer.center
-        topHeadLayer.addSublayer(endText)
-        topTailLayer.addSublayer(stText)
+        stText.position = topHeadLayer.center
+        endText.position = topTailLayer.center
+        topHeadLayer.addSublayer(stText)
+        topTailLayer.addSublayer(endText)
     }
 
 
@@ -360,7 +360,7 @@ open class TenClock : UIControl{
         titleTextLayer.font = cgFont
         //var computedTailAngle = tailAngle //+ (headAngle > tailAngle ? twoPi : 0)
         //computedTailAngle +=  (headAngle > computedTailAngle ? twoPi : 0)
-        var fiveMinIncrements = Int( ((tailAngle - headAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/)
+        var fiveMinIncrements = Int( ((headAngle - tailAngle) / twoPi) * 12 /*hrs*/ * 12 /*5min increments*/)
         if fiveMinIncrements < 0 {
             print("tenClock:Err: is negative")
             fiveMinIncrements += (24 * (60/5))
@@ -504,7 +504,7 @@ open class TenClock : UIControl{
             }
         case tailLayer:
             if (shouldMoveHead) {
-            pointMover = pointerMoverProducer({_ in self.tailAngle}, {self.headAngle += 0;self.tailAngle += $0})
+            pointMover = pointerMoverProducer({_ in self.tailAngle}, {self.headAngle += 0; self.tailAngle += $0})
                 } else {
                     pointMover = nil
             }
