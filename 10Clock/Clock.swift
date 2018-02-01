@@ -134,7 +134,7 @@ open class TenClock : UIControl{
     func proj(_ theta:Angle) -> CGPoint{
         let center = self.layer.center
         return CGPoint(x: center.x + trackRadius * cos(theta) ,
-                           y: center.y - trackRadius * sin(theta) )
+                           y: center.y + trackRadius * sin(theta))
     }
 
     var headPoint: CGPoint{
@@ -192,19 +192,19 @@ open class TenClock : UIControl{
     }
 
 
-    // input a date, output: 0 to 4pi
+    // input a date, output: 0-pi/2 to 4pi-pi/2
     func timeToAngle(_ date: Date) -> Angle{
         let units : Set<Calendar.Component> = [.hour, .minute]
         let components = self.calendar.dateComponents(units, from: date)
         let min = Double(  60 * components.hour! + components.minute! )
 
-        return medStepFunction(CGFloat(M_PI_2 - ( min / (12 * 60)) * 2 * M_PI), stepSize: CGFloat( 2 * M_PI / (12 * 60 / 5)))
+        return medStepFunction(CGFloat(( min / (24 * 60)) * 4 * M_PI - M_PI_2)  , stepSize: CGFloat( 2 * M_PI / (12 * 60 / 5)))
     }
 
     // input an angle, output: 0 to 4pi
     func angleToTime(_ angle: Angle) -> Date{
         let dAngle = Double(angle)
-        let min = CGFloat(((M_PI_2 - dAngle) / (2 * M_PI)) * (12 * 60))
+        let min = CGFloat(((dAngle + M_PI_2) / (4 * M_PI)) * (24 * 60))
         let startOfToday = Calendar.current.startOfDay(for: Date())
         return self.calendar.date(byAdding: .minute, value: Int(medStepFunction(min, stepSize: 5/* minute steps*/)), to: startOfToday)!
     }
@@ -275,8 +275,8 @@ open class TenClock : UIControl{
         pathLayer.path = UIBezierPath(
             arcCenter: arcCenter,
             radius: trackRadius,
-            startAngle: ( twoPi  ) -  ((headAngle - tailAngle) >= twoPi ? headAngle - twoPi : headAngle),
-            endAngle: ( twoPi ) -  tailAngle,
+            startAngle: headAngle,
+            endAngle: (tailAngle - headAngle) > twoPi ? tailAngle - twoPi : tailAngle,
             clockwise: true).cgPath
     }
 
@@ -485,7 +485,7 @@ open class TenClock : UIControl{
         let pointerMoverProducer: (@escaping (CGPoint) -> Angle, @escaping (Angle)->()) -> (CGPoint) -> () = { g, s in
             return { p in
                 let c = self.layer.center
-                let computedP = CGPoint(x: p.x, y: self.layer.bounds.height - p.y)
+                let computedP = CGPoint(x: p.x, y: p.y)
                 let v1 = CGVector(from: c, to: computedP)
                 let v2 = CGVector(angle:g( p ))
 
@@ -512,7 +512,7 @@ open class TenClock : UIControl{
             if (shouldMoveHead) {
             		pointMover = pointerMoverProducer({ pt in
                 		let x = CGVector(from: self.bounds.center,
-                		                 to:CGPoint(x: prev.x, y: self.layer.bounds.height - prev.y)).theta;
+                		                 to:CGPoint(x: prev.x, y: prev.y)).theta;
                     prev = pt;
                     return x
                     }, {self.headAngle += $0; self.tailAngle += $0 })
