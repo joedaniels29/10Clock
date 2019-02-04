@@ -50,7 +50,7 @@ open class TenClock : UIControl{
         r.instanceCount = 48
         r.instanceTransform =
             CATransform3DMakeRotation(
-                CGFloat(2*M_PI) / CGFloat(r.instanceCount),
+                CGFloat(2*Double.pi) / CGFloat(r.instanceCount),
                 0,0,1)
 
         return r
@@ -61,25 +61,25 @@ open class TenClock : UIControl{
         r.instanceCount = 12
         r.instanceTransform =
             CATransform3DMakeRotation(
-                CGFloat(2*M_PI) / CGFloat(r.instanceCount),
+                CGFloat(2*Double.pi) / CGFloat(r.instanceCount),
                 0,0,1)
 
         return r
     }()
-    let twoPi =  CGFloat(2 * M_PI)
-    let fourPi =  CGFloat(4 * M_PI)
+    let twoPi =  CGFloat(2 * Double.pi)
+    let fourPi =  CGFloat(4 * Double.pi)
     var headAngle: CGFloat = 0{
         didSet{
-            if (headAngle > fourPi  +  CGFloat(M_PI_2)){
+            if (headAngle > fourPi  +  CGFloat(Double.pi / 2)){
                 headAngle -= fourPi
             }
-            if (headAngle <  CGFloat(M_PI_2) ){
+            if (headAngle <  CGFloat(Double.pi / 2) ){
                 headAngle += fourPi
             }
         }
     }
 
-    var tailAngle: CGFloat = 0.7 * CGFloat(M_PI) {
+    var tailAngle: CGFloat = 0.7 * CGFloat(Double.pi) {
         didSet{
             if (tailAngle  > headAngle + fourPi){
                 tailAngle -= fourPi
@@ -198,13 +198,13 @@ open class TenClock : UIControl{
         let components = self.calendar.dateComponents(units, from: date)
         let min = Double(  60 * components.hour! + components.minute! )
 
-        return medStepFunction(CGFloat(M_PI_2 - ( min / (12 * 60)) * 2 * M_PI), stepSize: CGFloat( 2 * M_PI / (12 * 60 / 5)))
+        return medStepFunction(CGFloat((Double.pi / 2) - ( min / (12 * 60)) * 2 * (Double.pi / 2)), stepSize: CGFloat( 2 * Double.pi / (12 * 60 / 5)))
     }
 
     // input an angle, output: 0 to 4pi
     func angleToTime(_ angle: Angle) -> Date{
         let dAngle = Double(angle)
-        let min = CGFloat(((M_PI_2 - dAngle) / (2 * M_PI)) * (12 * 60))
+        let min = CGFloat(((Double.pi / 2 - dAngle) / (2 * Double.pi)) * (12 * 60))
         let startOfToday = Calendar.current.startOfDay(for: Date())
         return self.calendar.date(byAdding: .minute, value: Int(medStepFunction(min, stepSize: 5/* minute steps*/)), to: startOfToday)!
     }
@@ -333,7 +333,7 @@ open class TenClock : UIControl{
         let cgFont = CTFontCreateWithName(f.fontName as CFString?, f.pointSize/2,nil)
         let startPos = CGPoint(x: numeralsLayer.bounds.midX, y: 15)
         let origin = numeralsLayer.center
-        let step = (2 * M_PI) / 12
+        let step = (2 * Double.pi) / 12
         for i in (1 ... 12){
             let l = CATextLayer()
             l.bounds.size = CGSize(width: i > 9 ? 18 : 8, height: 15)
