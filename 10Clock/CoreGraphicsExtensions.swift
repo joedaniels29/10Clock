@@ -38,7 +38,7 @@ extension UIColor {
 }
 
 extension Angle{
-    var reverse:Angle{return CGFloat(2 * M_PI) - self}
+    var reverse:Angle{return CGFloat(2 * Double.pi) - self}
 }
 extension FloatingPoint{
     var isBad:Bool{ return isNaN || isInfinite }
@@ -57,7 +57,7 @@ func df() -> CGFloat {
 }
 func clockDescretization(_ val: CGFloat) -> CGFloat{
     let min:Double  = 0
-    let max:Double = 2 * Double(M_PI)
+    let max:Double = 2 * Double.pi
     let steps:Double = 144
     let stepSize = (max - min) / steps
     let nsf = floor(Double(val) / stepSize)
@@ -127,13 +127,15 @@ extension CGVector{
         guard !from.hasNaN && !to.hasNaN  else {
                 fatalError("Nan point!")
             }
+        self.init()
         dx = to.x - from.x
         dy = to.y - from.y
         _ = self.checked
     }
     
     init(angle:Angle){
-        let compAngle = angle < 0 ? (angle + CGFloat(2 * M_PI)) : angle
+        let compAngle = angle < 0 ? (angle + CGFloat(2 * Double.pi)) : angle
+        self.init()
         dx = cos(compAngle.checked)
         dy = sin(compAngle.checked)
         _ = self.checked
